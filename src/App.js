@@ -7,6 +7,10 @@ import RecipeList from './RecipeList/RecipeList';
 import RecipeDetail from './RecipeDetail/RecipeDetail';
 import './App.css';
 
+// TODO: Add create recipe component
+// TODO: Add Sign in component
+// TODO: Add Sign up component
+
 function App() {
   return (
     <div className="App">
