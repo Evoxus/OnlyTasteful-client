@@ -11,6 +11,11 @@ import './App.css';
 // TODO: Add Sign in component
 // TODO: Add Sign up component
 
+/* ---- NOTES ----
+  * When user signed in replace signin/signup links with create recipe link 
+  * When user signed in show buttons for delete and modify on their own recipes
+*/
+
 function App() {
   return (
     <div className="App">
