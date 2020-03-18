@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import Nav from './Nav/Nav';
 import './App.css';
+import Footer from './Footer/Footer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Nav />
+      <section className="hero">
+        <h1>OnlyTasteful</h1>
+        <h2>A cookbook for the modern cook</h2>
+      </section>
+      <section className="findYourDish">
+        <h3>Find your next dish to cook</h3>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          [<em>Placeholder for screenshot of view all recipes</em>] OnlyTasteful is the digital
+          equivalent of grandma's cookbook.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </section>
+      <section className="createRecipes">
+        <h3>Create and modify your own recipes</h3>
+        <p>
+          [<em>Placeholder for gif of create/modify interface</em>]
+          Add or modify your recipes to build a library of delicious meals.
+        </p>
+      </section>
+      <Footer />
     </div>
   );
 }
