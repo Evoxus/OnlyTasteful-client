@@ -7,6 +7,7 @@ function Nav() {
     <nav>
       <p>OnlyTasteful</p>
       <ul>
+        <li><Link to='/recipes'>Recipes</Link></li>
         <li>Sign In</li>
         <li>Sign Up</li>
       </ul>
