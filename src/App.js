@@ -4,6 +4,7 @@ import Nav from './Nav/Nav';
 import Landing from './Landing/Landing';
 import Footer from './Footer/Footer';
 import RecipeList from './RecipeList/RecipeList';
+import RecipeDetail from './RecipeDetail/RecipeDetail';
 import './App.css';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
     <div className="App">
       <Nav />
         <Route exact path='/' component={Landing} />
-        <Route path='/recipes' component={RecipeList} />
+        <Route exact path='/recipes' component={RecipeList} />
+        <Route path='/recipes/:id' component={RecipeDetail} />
       <Footer />
     </div>
   );
