@@ -1,0 +1,19 @@
+.signIn {
+  margin-top: 60px;
+}
+
+.signIn input {
+  border: 1px solid #737373;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.signIn input[type=submit] {
+  margin: 10px auto;
+}
+
+.signIn label {
+  display: block;
+}
