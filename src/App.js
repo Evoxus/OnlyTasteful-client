@@ -12,6 +12,12 @@ import { Recipes, Users } from './dummy-store';
 import { findRecipe } from './recipe-helpers';
 import './App.css';
 
+// FIXME: Crash if refresh in recipe or recipe detail (store not updating recipes?)
+// TODO: Add create recipe functionality, convert to class component for state
+// TODO: Add form validation for signin
+// TODO: Add form validation for signup
+// TODO: Add form validation for create recipe
+
 /* ---- NOTES ----
   * When user signed in replace signin/signup links with create recipe link 
   * When user signed in show buttons for delete and modify on their own recipes
