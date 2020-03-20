@@ -1,9 +1,10 @@
 export const Recipes = [
   {
-    title: 'Spaghetti',
-    user_id: 1,
-    description: 'My take on spaghetti. A mix of spice and sweet makes this dish a crowd pleaser.',
-    ingredients: [
+    "id": 1,
+    "title": 'Spaghetti',
+    "user_id": 1,
+    "description": 'My take on spaghetti. A mix of spice and sweet makes this dish a crowd pleaser.',
+    "ingredients": [
       {
         quantity: '2-3',
         unit: 'lbs',
@@ -60,7 +61,7 @@ export const Recipes = [
         name: 'Cinnamon'
       },
     ],
-    instructions:
+    "instructions":
       `
       In large pot, simmer 2 large jars of plain spaghetti sauce.
       In separate large skillet, melt 2 Tbl butter, sautee chopped onion (1 whole) and galic (4-6 cloves). 
@@ -72,10 +73,11 @@ export const Recipes = [
     `
   },
   {
-    title: 'Spinach and Artichoke Lasagna',
-    user_id: 3,
-    description: 'A great meal to make at the beginning of the week and eat leftovers throughout.',
-    ingredients: [
+    "id": 2,
+    "title": 'Spinach and Artichoke Lasagna',
+    "user_id": 3,
+    "description": 'A great meal to make at the beginning of the week and eat leftovers throughout.',
+    "ingredients": [
       {
         quantity: 1,
         unit: '28 oz can',
@@ -152,7 +154,7 @@ export const Recipes = [
         name: 'Mozzarella'
       },
     ],
-    instructions:
+    "instructions":
       `
       Preheat oven to 425 degrees Fahrenheit. To prepare the tomato sauce, first pour the tomatoes into a 
       mesh sieve or fine colander and let them drain off excess juice for a minute. Transfer drained 
@@ -189,10 +191,11 @@ export const Recipes = [
     `
   },
   {
-    title: 'Cheesy Rice',
-    user_id: 2,
-    description: 'A great meal to make at the beginning of the week and eat leftovers throughout.',
-    ingredients: [
+    "id": 3,
+    "title": 'Cheesy Rice',
+    "user_id": 2,
+    "description": 'A great meal to make at the beginning of the week and eat leftovers throughout.',
+    "ingredients": [
       {
         quantity: 4,
         unit: 'tablespoons',
@@ -244,7 +247,7 @@ export const Recipes = [
         name: 'Cooked broccoli florets'
       },
     ],
-    instructions:
+    "instructions":
       `
       1. Grease a 9x13-inch casserole pan. Preheat oven to 400 degrees F 
       2. In a large saucepan melt
@@ -258,10 +261,11 @@ export const Recipes = [
       `
   },
   {
-    title: 'Veggie Chilli',
-    user_id: 1,
-    description: 'A real, chunky, chili, without the meat. The right consistency to please your typical meat chili eater or the vegetarian looking for real chili.',
-    ingredients: [
+    "id": 4,
+    "title": 'Veggie Chilli',
+    "user_id": 1,
+    "description": 'A real, chunky, chili, without the meat. The right consistency to please your typical meat chili eater or the vegetarian looking for real chili.',
+    "ingredients": [
       {
         quantity: 1,
         unit: '',
@@ -368,7 +372,7 @@ export const Recipes = [
         name: 'Dark beer'
       },
     ],
-    instructions:
+    "instructions":
       `
       Start by bringing the veggie stock to a boil. Pour in the pearl barley. Bring back to a boil then lower heat to a simmer until 
       most of the stock has been absorbed. Usually this takes about as long as the next part of the prep for me.

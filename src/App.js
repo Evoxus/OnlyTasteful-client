@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Nav from './Nav/Nav';
 import Landing from './Landing/Landing';
@@ -9,6 +9,7 @@ import CreateRecipe from './CreateRecipe/CreateRecipe';
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
 import { Recipes, Users } from './dummy-store';
+import { findRecipe } from './recipe-helpers';
 import './App.css';
 
 /* ---- NOTES ----
@@ -16,24 +17,43 @@ import './App.css';
   * When user signed in show buttons for delete and modify on their own recipes
 */
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
+class App extends Component {
+  state = {
+    recipes: []
+  }
+
+  componentDidMount() {
+    this.setState({
+      recipes: Recipes,
+    })
+  }
+
+  render() {
+    const { recipes } = this.state
+    return (
+      <div className="App">
+        <Nav />
         <Route exact path='/' component={Landing} />
         <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
         <Route exact path='/recipes' render={routeProps => {
           return (
-            <RecipeList {...routeProps} recipes={Recipes} users={Users} />
-            )
+            <RecipeList {...routeProps} recipes={recipes} users={Users} />
+          )
         }}
         />
-        <Route path='/recipes/:id' component={RecipeDetail} />
+        <Route path='/recipes/:recipeId' render={routeProps => {
+          const { recipeId } = routeProps.match.params
+          const recipe = findRecipe(recipes, recipeId)
+          return (
+            <RecipeDetail {...routeProps} data={recipe} users={Users} />
+          )
+        }} />
         <Route path='/createrecipe' component={CreateRecipe} />
-      <Footer />
-    </div>
-  );
+        <Footer />
+      </div>
+    )
+  };
 }
 
 export default App;
