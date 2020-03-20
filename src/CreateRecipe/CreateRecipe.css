@@ -1,0 +1,25 @@
+.createRecipe {
+  margin-top: 60px;
+}
+
+.createRecipeForm {
+  margin-bottom: 20px;
+}
+
+.createRecipeForm button,
+.createRecipeForm input[type=submit] {
+  margin: 10px auto;
+}
+
+input,
+textarea {
+  border: 1px solid #737373;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+label {
+  display: block;
+}
