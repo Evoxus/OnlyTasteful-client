@@ -1,7 +1,8 @@
-export const recipes = [
+export const Recipes = [
   {
     title: 'Spaghetti',
     user_id: 1,
+    description: 'My take on spaghetti. A mix of spice and sweet makes this dish a crowd pleaser.',
     ingredients: [
       {
         quantity: '2-3',
@@ -52,7 +53,12 @@ export const recipes = [
         quantity: 2,
         unit: 'jars',
         name: 'Prego sauce'
-      }
+      },
+      {
+        quantity: 'dash',
+        unit: '',
+        name: 'Cinnamon'
+      },
     ],
     instructions:
       `
@@ -68,6 +74,7 @@ export const recipes = [
   {
     title: 'Spinach and Artichoke Lasagna',
     user_id: 3,
+    description: 'A great meal to make at the beginning of the week and eat leftovers throughout.',
     ingredients: [
       {
         quantity: 1,
@@ -184,6 +191,7 @@ export const recipes = [
   {
     title: 'Cheesy Rice',
     user_id: 2,
+    description: 'A great meal to make at the beginning of the week and eat leftovers throughout.',
     ingredients: [
       {
         quantity: 4,
@@ -252,6 +260,7 @@ export const recipes = [
   {
     title: 'Veggie Chilli',
     user_id: 1,
+    description: 'A real, chunky, chili, without the meat. The right consistency to please your typical meat chili eater or the vegetarian looking for real chili.',
     ingredients: [
       {
         quantity: 1,
@@ -376,7 +385,7 @@ export const recipes = [
   },
 ]
 
-export const users = [
+export const Users = [
   {
     id: 1,
     user_name: 'MHP',

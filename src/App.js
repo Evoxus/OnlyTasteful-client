@@ -8,6 +8,7 @@ import RecipeDetail from './RecipeDetail/RecipeDetail';
 import CreateRecipe from './CreateRecipe/CreateRecipe';
 import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
+import { Recipes, Users } from './dummy-store';
 import './App.css';
 
 /* ---- NOTES ----
@@ -22,7 +23,12 @@ function App() {
         <Route exact path='/' component={Landing} />
         <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
-        <Route exact path='/recipes' component={RecipeList} />
+        <Route exact path='/recipes' render={routeProps => {
+          return (
+            <RecipeList {...routeProps} recipes={Recipes} users={Users} />
+            )
+        }}
+        />
         <Route path='/recipes/:id' component={RecipeDetail} />
         <Route path='/createrecipe' component={CreateRecipe} />
       <Footer />
