@@ -7,10 +7,8 @@ import RecipeList from './RecipeList/RecipeList';
 import RecipeDetail from './RecipeDetail/RecipeDetail';
 import CreateRecipe from './CreateRecipe/CreateRecipe';
 import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
 import './App.css';
-
-
-// TODO: Add Sign up component
 
 /* ---- NOTES ----
   * When user signed in replace signin/signup links with create recipe link 
@@ -22,6 +20,7 @@ function App() {
     <div className="App">
       <Nav />
         <Route exact path='/' component={Landing} />
+        <Route path='/signup' component={SignUp} />
         <Route path='/signin' component={SignIn} />
         <Route exact path='/recipes' component={RecipeList} />
         <Route path='/recipes/:id' component={RecipeDetail} />

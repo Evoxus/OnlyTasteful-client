@@ -9,7 +9,7 @@ function Nav() {
       <ul>
         <li><Link to='/recipes'>Recipes</Link></li>
         <li><Link to='/signin'>Sign In</Link></li>
-        <li>Sign Up</li>
+        <li><Link to='/signup'>Sign Up</Link></li>
       </ul>
     </nav>
   )
