@@ -5,11 +5,11 @@ import Landing from './Landing/Landing';
 import Footer from './Footer/Footer';
 import RecipeList from './RecipeList/RecipeList';
 import RecipeDetail from './RecipeDetail/RecipeDetail';
-import './App.css';
 import CreateRecipe from './CreateRecipe/CreateRecipe';
+import SignIn from './SignIn/SignIn';
+import './App.css';
 
-// TODO: Add create recipe component
-// TODO: Add Sign in component
+
 // TODO: Add Sign up component
 
 /* ---- NOTES ----
@@ -22,6 +22,7 @@ function App() {
     <div className="App">
       <Nav />
         <Route exact path='/' component={Landing} />
+        <Route path='/signin' component={SignIn} />
         <Route exact path='/recipes' component={RecipeList} />
         <Route path='/recipes/:id' component={RecipeDetail} />
         <Route path='/createrecipe' component={CreateRecipe} />
