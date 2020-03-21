@@ -1,6 +1,8 @@
 import React from 'react';
 import './CreateRecipe.css';
 
+// TODO: make ingredient list column off to side in desktop
+
 function CreateRecipe() {
   return (
     <main role="main" className='createRecipe'>

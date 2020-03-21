@@ -13,6 +13,7 @@ import { findRecipe } from './recipe-helpers';
 import './App.css';
 
 // FIXME: Crash if refresh in recipe or recipe detail (store not updating recipes?)
+// TODO: Mock up user by setting user to true when signin submitted
 // TODO: Add create recipe functionality, convert to class component for state
 // TODO: Add form validation for signin
 // TODO: Add form validation for signup
