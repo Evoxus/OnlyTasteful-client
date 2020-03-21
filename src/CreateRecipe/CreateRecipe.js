@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import OnlyTastefulContext from '../OnlyTastefulContext';
 import './CreateRecipe.css';
 
-// TODO: make ingredient list column off to side in desktop
+// TODO: Figure out whether ingredient list should be own component or not
+// TODO: Implement ingredient input correctly so that list shows up on RecipeDetail
+
 
 class CreateRecipe extends Component {
   static defaultProps = {

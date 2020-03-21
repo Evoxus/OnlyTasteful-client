@@ -12,7 +12,6 @@ import OnlyTastefulContext from '../OnlyTastefulContext';
 import { Recipes, Users } from '../dummy-store';
 import './App.css';
 
-// TODO: Add create recipe functionality, convert to class component for state
 // TODO: Add form validation for signin
 // TODO: Add form validation for signup
 // TODO: Add form validation for create recipe
