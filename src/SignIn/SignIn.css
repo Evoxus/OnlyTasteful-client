@@ -10,7 +10,7 @@
   max-width: 650px;
 }
 
-.signIn input[type=submit] {
+.signIn button[type=submit] {
   margin: 10px auto;
 }
 

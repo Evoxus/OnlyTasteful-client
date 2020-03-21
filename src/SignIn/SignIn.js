@@ -13,7 +13,7 @@ function SignIn() {
         <input type='text' name='user_name' id='signin_user_name' />
         <label htmlFor='signin_password'>Password</label>
         <input type='password' name='password' id='signin_password' />
-        <input type='submit' />
+        <button type='submit'>Sign In</button>
       </form>
     </section>
     </main>
