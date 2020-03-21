@@ -50,6 +50,9 @@ class App extends Component {
 
   handleCreateRecipe = (newRecipe) => {
     console.log('created recipe', newRecipe);
+    this.setState({
+      recipes: [ ...this.state.recipes, newRecipe ]
+    })
   }
 
   render() {

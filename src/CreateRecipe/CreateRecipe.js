@@ -32,13 +32,46 @@ class CreateRecipe extends Component {
 
   static contextType = OnlyTastefulContext;
 
+  updateTitle(value) {
+    this.setState({
+      title: {
+        value: value,
+        touched: true
+      }
+    })
+  }
+
+  updateDescription(value) {
+    this.setState({
+      description: {
+        value: value,
+        touched: true
+      }
+    })
+  }
+
+  updateIngredients(value) {
+
+  }
+
+  updateCookingDirections(value) {
+    this.setState({
+      cookingDirections: {
+        value: value,
+        touched: true
+      }
+    })
+  }
+
   onCreateRecipe = (e) => {
     e.preventDefault()
     const newRecipe = {
+      id: this.context.recipes.length + 1,
       title: this.state.title.value,
       description: this.state.description.value,
       ingredients: this.state.ingredients.values,
       instructions: this.state.cookingDirections.value,
+      user_id: 2,
     }
     this.context.createRecipe(newRecipe)
     this.props.history.push('/recipes')
@@ -59,11 +92,20 @@ class CreateRecipe extends Component {
             <div className='flexContainer'>
               <div className='leftColumn'>
                 <label htmlFor='recipe_title'>Title</label>
-                <input type='text' name='title' id='recipe_title' />
+                <input 
+                  type='text' name='title' id='recipe_title' 
+                  onChange={e => this.updateTitle(e.target.value)}
+                />
                 <label htmlFor='description'>Description</label>
-                <textarea name='description' id='description' />
+                <textarea 
+                  name='description' id='description'
+                  onChange={e => this.updateDescription(e.target.value)}
+                />
                 <label htmlFor='cookingDirections'>Cooking Directions</label>
-                <textarea id='cookingDirections' name='cookingDirections'></textarea>
+                <textarea 
+                  id='cookingDirections' name='cookingDirections'
+                  onChange={e => this.updateCookingDirections(e.target.value)}
+                ></textarea>
               </div>
               <div className='rightColumn'>
                 <label htmlFor='ingredient1'>Ingredient 1</label>
