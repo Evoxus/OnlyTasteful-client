@@ -1,3 +1,7 @@
 .RecipeDetail {
   margin-top: 60px;
 }
+
+.RecipeDetail ul{
+  list-style: none;
+}

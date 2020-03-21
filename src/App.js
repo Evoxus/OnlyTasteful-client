@@ -20,13 +20,14 @@ import './App.css';
 // TODO: Add form validation for create recipe
 
 /* ---- NOTES ----
-  * When user signed in replace signin/signup links with create recipe link 
+  * When user signed in replace signin/signup links with create recipe link and signout
   * When user signed in show buttons for delete and modify on their own recipes
 */
 
 class App extends Component {
   state = {
-    recipes: []
+    recipes: [],
+    user: null,
   }
 
   componentDidMount() {
@@ -35,14 +36,22 @@ class App extends Component {
     })
   }
 
+  onSignIn = (e) => {
+    e.preventDefault();
+    console.log('signed in');
+    // this.setState({
+    //   user: true,
+    // })
+  }
+
   render() {
     const { recipes } = this.state
     return (
       <div className="App">
-        <Nav />
+        <Nav user={this.state.user}/>
         <Route exact path='/' component={Landing} />
         <Route path='/signup' component={SignUp} />
-        <Route path='/signin' component={SignIn} />
+        <Route path='/signin' component={SignIn} onSignIn={this.onSignIn}/>
         <Route exact path='/recipes' render={routeProps => {
           return (
             <RecipeList {...routeProps} recipes={recipes} users={Users} />
