@@ -12,8 +12,6 @@ import OnlyTastefulContext from '../OnlyTastefulContext';
 import { Recipes, Users } from '../dummy-store';
 import './App.css';
 
-// FIXME: Crash if refresh in recipe or recipe detail (store not updating recipes?)
-// TODO: Mock up user by setting user to true when signin submitted
 // TODO: Add create recipe functionality, convert to class component for state
 // TODO: Add form validation for signin
 // TODO: Add form validation for signup
@@ -50,8 +48,8 @@ class App extends Component {
     })
   }
 
-  handleCreateRecipe = () => {
-    console.log('created recipe');
+  handleCreateRecipe = (newRecipe) => {
+    console.log('created recipe', newRecipe);
   }
 
   render() {
