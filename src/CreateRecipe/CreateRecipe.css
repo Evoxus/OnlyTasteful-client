@@ -14,15 +14,15 @@
 .createRecipeForm button,
 .createRecipeForm input[type=submit] {
   max-width: 200px;
-  margin: 10px auto;
 }
 
 .createRecipeForm input,
-.createRecipeForm textarea {
+.createRecipeForm textarea,
+.createRecipeForm button {
   border: 1px solid #737373;
   border-radius: 5px;
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 60%;
   max-width: 650px;
 }

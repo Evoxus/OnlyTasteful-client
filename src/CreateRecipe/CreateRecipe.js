@@ -21,7 +21,9 @@ class CreateRecipe extends Component {
       touched: false,
     },
     ingredients: {
-      values: [],
+      values: [
+        '',
+      ],
       touched: false,
     },
     cookingDirections: {
@@ -50,9 +52,11 @@ class CreateRecipe extends Component {
     })
   }
 
-  updateIngredients(value) {
-
-  }
+  updateIngredients = (ingredients, index, ingredient) => [
+    ...ingredients.slice(0, index),
+    ingredient,
+    ...ingredients.slice(index + 1)
+  ];
 
   updateCookingDirections(value) {
     this.setState({
@@ -79,7 +83,17 @@ class CreateRecipe extends Component {
 
   addIngredient = (e) => {
     e.preventDefault()
+    this.setState({
+      ingredients: {
+        values: [...this.state.ingredients.values, '']
+      }
+    })
   }
+
+  removeIngredients = (ingredients, index) => [
+    ...ingredients.slice(0, index),
+    ...ingredients.slice(index + 1)
+  ];
 
   render() {
     return (
@@ -92,24 +106,47 @@ class CreateRecipe extends Component {
             <div className='flexContainer'>
               <div className='leftColumn'>
                 <label htmlFor='recipe_title'>Title</label>
-                <input 
-                  type='text' name='title' id='recipe_title' 
+                <input
+                  type='text' name='title' id='recipe_title'
                   onChange={e => this.updateTitle(e.target.value)}
                 />
                 <label htmlFor='description'>Description</label>
-                <textarea 
+                <textarea
                   name='description' id='description'
                   onChange={e => this.updateDescription(e.target.value)}
                 />
                 <label htmlFor='cookingDirections'>Cooking Directions</label>
-                <textarea 
+                <textarea
                   id='cookingDirections' name='cookingDirections'
                   onChange={e => this.updateCookingDirections(e.target.value)}
                 ></textarea>
               </div>
               <div className='rightColumn'>
-                <label htmlFor='ingredient1'>Ingredient 1</label>
-                <input type='text' name='ingredient1' id='ingredient1' />
+                {this.state.ingredients.values.map((ingredient, idx) =>
+                  <React.Fragment key={idx}>
+                    <label htmlFor={`ingredient${idx}`}>Ingredient {idx + 1}</label>
+                    <input type='text' name={`ingredient${idx}`} id={`ingredient${idx}`} 
+                    onChange={e => this.setState({
+                      ingredients: {
+                        values: this.updateIngredients(this.state.ingredients.values, idx, e.target.value)
+                      },
+                    })} />
+                    {!!idx && (
+                      <button type="button"
+                        onClick={() =>
+                          this.setState({
+                            ingredients:
+                            { 
+                              values: this.removeIngredients(
+                                this.state.ingredients.values,
+                                idx
+                              )
+                            }
+                          })
+                        }>Remove Ingredient</button>
+                    )}
+                  </React.Fragment>
+                )}
                 <button onClick={this.addIngredient}>+ Add another ingredient</button>
               </div>
             </div>
