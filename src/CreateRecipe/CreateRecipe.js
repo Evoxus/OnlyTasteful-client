@@ -3,10 +3,6 @@ import OnlyTastefulContext from '../OnlyTastefulContext';
 import './CreateRecipe.css';
 import IngredientInput from '../IngredientInput/IngredientInput';
 
-// TODO: Figure out whether ingredient list should be own component or not
-// TODO: Implement ingredient input correctly so that list shows up on RecipeDetail
-
-
 class CreateRecipe extends Component {
   static defaultProps = {
     history: {
@@ -202,27 +198,3 @@ class CreateRecipe extends Component {
 }
 
 export default CreateRecipe;
-// Old inline component for ingredient input "working"
-//   <React.Fragment key={idx}>
-//     <label htmlFor={`ingredient${idx}`}>Ingredient {idx + 1}</label>
-//     <input type='text' name={`ingredient${idx}`} id={`ingredient${idx}`} 
-//     onChange={e => this.setState({
-//       ingredients: {
-//         values: this.updateIngredients(this.state.ingredients.values, idx, e.target.value)
-//       },
-//     })} />
-//     {!!idx && (
-//       <button type="button"
-//         onClick={() =>
-//           this.setState({
-//             ingredients:
-//             { 
-//               values: this.removeIngredients(
-//                 this.state.ingredients.values,
-//                 idx
-//               )
-//             }
-//           })
-//         }>Remove Ingredient</button>
-//     )}
-//   </React.Fragment>

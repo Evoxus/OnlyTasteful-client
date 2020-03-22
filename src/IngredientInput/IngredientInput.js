@@ -19,6 +19,3 @@ export default function IngredientInput(props) {
     </div>
   )
 }
-
-// onChange={e => props.handleChange(e.target)} 
-// on each input doesn't separate values into their keys correctly

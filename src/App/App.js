@@ -17,7 +17,6 @@ import './App.css';
 // TODO: Add form validation for create recipe
 
 /* ---- NOTES ----
-  * When user signed in replace signin/signup links with create recipe link and signout
   * When user signed in show buttons for delete and modify on their own recipes
 */
 
