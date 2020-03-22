@@ -22,7 +22,6 @@ class CreateRecipe extends Component {
     ingredients: {
       values: [
         {
-          id: 1,
           quantity: '',
           unit: '',
           name: '',
@@ -143,6 +142,7 @@ class CreateRecipe extends Component {
   }
 
   removeIngredients = (index) => {
+    console.log('index', index)
     const ingredients = this.state.ingredients.values
     this.setState({
       ingredients: {
@@ -182,7 +182,7 @@ class CreateRecipe extends Component {
               </div>
               <div className='rightColumn'>
                 {this.state.ingredients.values.map((ingredient, idx) =>
-                  <IngredientInput key={idx} idx={idx}
+                  <IngredientInput key={idx} idx={idx} data={ingredient}
                     handleChange={this.updateIngredients} onClick={e => this.removeIngredients(idx)}
                   />
                 )}
