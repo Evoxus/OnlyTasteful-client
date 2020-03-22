@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import OnlyTastefulContext from '../OnlyTastefulContext';
 import './CreateRecipe.css';
+import IngredientInput from '../IngredientInput/IngredientInput';
 
 // TODO: Figure out whether ingredient list should be own component or not
 // TODO: Implement ingredient input correctly so that list shows up on RecipeDetail
@@ -24,7 +25,12 @@ class CreateRecipe extends Component {
     },
     ingredients: {
       values: [
-        '',
+        {
+          id: 1,
+          quantity: '',
+          unit: '',
+          name: '',
+        },
       ],
       touched: false,
     },
@@ -54,11 +60,52 @@ class CreateRecipe extends Component {
     })
   }
 
-  updateIngredients = (ingredients, index, ingredient) => [
-    ...ingredients.slice(0, index),
-    ingredient,
-    ...ingredients.slice(index + 1)
-  ];
+  updateIngredients = (target, idx) => {
+    const ingredientValues = this.state.ingredients.values;
+    if (target.id === `ingredient_name${idx}`) {
+      this.setState({
+        ingredients: {
+          values: [
+            ...ingredientValues.slice(0, idx),
+            {
+              name: target.value,
+              unit: ingredientValues[idx].unit,
+              quantity: ingredientValues[idx].quantity,
+            },
+            ...ingredientValues.slice(idx + 1)
+          ]
+        }
+      })
+    } else if (target.id === `ingredient_unit${idx}`) {
+      this.setState({
+        ingredients: {
+          values: [
+            ...ingredientValues.slice(0, idx),
+            {
+              name: ingredientValues[idx].name,
+              unit: target.value,
+              quantity: ingredientValues[idx].quantity,
+            },
+            ...ingredientValues.slice(idx + 1)
+          ]
+        }
+      })
+    } else if (target.id === `ingredient_quantity${idx}`) {
+      this.setState({
+        ingredients: {
+          values: [
+            ...ingredientValues.slice(0, idx),
+            {
+              name: ingredientValues[idx].name,
+              unit: ingredientValues[idx].unit,
+              quantity: target.value,
+            },
+            ...ingredientValues.slice(idx + 1)
+          ]
+        }
+      })
+    }
+  }
 
   updateCookingDirections(value) {
     this.setState({
@@ -87,15 +134,29 @@ class CreateRecipe extends Component {
     e.preventDefault()
     this.setState({
       ingredients: {
-        values: [...this.state.ingredients.values, '']
-      }
+        values: [
+          ...this.state.ingredients.values,
+          {
+            quantity: '',
+            unit: '',
+            name: ''
+          },
+        ],
+      },
     })
   }
 
-  removeIngredients = (ingredients, index) => [
-    ...ingredients.slice(0, index),
-    ...ingredients.slice(index + 1)
-  ];
+  removeIngredients = (index) => {
+    const ingredients = this.state.ingredients.values
+    this.setState({
+      ingredients: {
+        values: [
+          ...ingredients.slice(0, index),
+          ...ingredients.slice(index + 1)
+        ]
+      }
+    })
+  };
 
   render() {
     return (
@@ -125,29 +186,9 @@ class CreateRecipe extends Component {
               </div>
               <div className='rightColumn'>
                 {this.state.ingredients.values.map((ingredient, idx) =>
-                  <React.Fragment key={idx}>
-                    <label htmlFor={`ingredient${idx}`}>Ingredient {idx + 1}</label>
-                    <input type='text' name={`ingredient${idx}`} id={`ingredient${idx}`} 
-                    onChange={e => this.setState({
-                      ingredients: {
-                        values: this.updateIngredients(this.state.ingredients.values, idx, e.target.value)
-                      },
-                    })} />
-                    {!!idx && (
-                      <button type="button"
-                        onClick={() =>
-                          this.setState({
-                            ingredients:
-                            { 
-                              values: this.removeIngredients(
-                                this.state.ingredients.values,
-                                idx
-                              )
-                            }
-                          })
-                        }>Remove Ingredient</button>
-                    )}
-                  </React.Fragment>
+                  <IngredientInput key={idx} idx={idx}
+                    handleChange={this.updateIngredients} onClick={e => this.removeIngredients(idx)}
+                  />
                 )}
                 <button onClick={this.addIngredient}>+ Add another ingredient</button>
               </div>
@@ -161,3 +202,27 @@ class CreateRecipe extends Component {
 }
 
 export default CreateRecipe;
+// Old inline component for ingredient input "working"
+//   <React.Fragment key={idx}>
+//     <label htmlFor={`ingredient${idx}`}>Ingredient {idx + 1}</label>
+//     <input type='text' name={`ingredient${idx}`} id={`ingredient${idx}`} 
+//     onChange={e => this.setState({
+//       ingredients: {
+//         values: this.updateIngredients(this.state.ingredients.values, idx, e.target.value)
+//       },
+//     })} />
+//     {!!idx && (
+//       <button type="button"
+//         onClick={() =>
+//           this.setState({
+//             ingredients:
+//             { 
+//               values: this.removeIngredients(
+//                 this.state.ingredients.values,
+//                 idx
+//               )
+//             }
+//           })
+//         }>Remove Ingredient</button>
+//     )}
+//   </React.Fragment>
