@@ -182,7 +182,8 @@ class CreateRecipe extends Component {
               </div>
               <div className='rightColumn'>
                 {this.state.ingredients.values.map((ingredient, idx) =>
-                  <IngredientInput key={idx} idx={idx} data={ingredient}
+                  <IngredientInput key={idx} idx={idx} 
+                    data={ingredient} arrLength={this.state.ingredients.values.length}
                     handleChange={this.updateIngredients} onClick={e => this.removeIngredients(idx)}
                   />
                 )}

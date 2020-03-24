@@ -11,11 +11,11 @@ export default function IngredientInput(props) {
       <input type='text' name={`ingredient_quantity${props.idx}`} id={`ingredient_quantity${props.idx}`} value={props.data.quantity}/>
       <label htmlFor={`ingredient${props.idx}`}>Unit</label>
       <input type='text' name={`ingredient_unit${props.idx}`} id={`ingredient_unit${props.idx}`} value={props.data.unit} />
-      {/* {!!props.idx && ( */}
+      { props.arrLength > 1 ? 
         <button type="button"
           onClick={(e) => props.onClick(e)}
         >Remove Ingredient</button>
-      {/* )} */}
+      : null }
     </div>
   )
 }
