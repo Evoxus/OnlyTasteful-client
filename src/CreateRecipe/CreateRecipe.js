@@ -142,7 +142,6 @@ class CreateRecipe extends Component {
   }
 
   removeIngredients = (index) => {
-    console.log('index', index)
     const ingredients = this.state.ingredients.values
     this.setState({
       ingredients: {

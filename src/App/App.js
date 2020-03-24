@@ -15,9 +15,10 @@ import './App.css';
 // TODO: Add form validation for signin
 // TODO: Add form validation for signup
 // TODO: Add form validation for create recipe
+// TODO: Add error boundary and tests
 
 /* ---- NOTES ----
-  * When user signed in show buttons for delete and modify on their own recipes
+  * When user signed in show buttons for delete and modify on their own recipes, will need auth for this
 */
 
 class App extends Component {
@@ -47,7 +48,6 @@ class App extends Component {
   }
 
   handleCreateRecipe = (newRecipe) => {
-    console.log('created recipe', newRecipe);
     this.setState({
       recipes: [ ...this.state.recipes, newRecipe ]
     })

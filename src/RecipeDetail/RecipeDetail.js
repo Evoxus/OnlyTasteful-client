@@ -13,7 +13,6 @@ class RecipeDetail extends Component {
   static contextType = OnlyTastefulContext;
 
   render() {
-    console.log('params', this.props.match.params)
     const { recipeId } = this.props.match.params;
     const { users } = this.context;
     const recipe = findRecipe(this.context.recipes, recipeId)
