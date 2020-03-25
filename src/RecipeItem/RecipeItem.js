@@ -16,3 +16,15 @@ function RecipeItem(props) {
 }
 
 export default RecipeItem
+
+RecipeItem.defaultProps = {
+  data: {
+    id: 1,
+    title: '',
+    user_id: 1,
+    description: '',
+  },
+  users: [
+    { id: 1 }
+  ]
+}
