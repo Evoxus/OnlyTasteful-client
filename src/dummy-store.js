@@ -392,9 +392,9 @@ export const Recipes = [
 export const Users = [
   {
     id: 1,
-    user_name: 'MHP',
+    user_name: 'SomeGuy',
     password: '8211e8cf6d25db0fb02c9a392b6630a7',
-    full_name: 'Michael Ploughman'
+    full_name: 'Somebody Somewhere'
   },
   {
     id: 2,
