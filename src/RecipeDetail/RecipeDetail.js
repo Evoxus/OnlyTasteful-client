@@ -7,7 +7,25 @@ class RecipeDetail extends Component {
   static defaultProps = {
     match: {
       params: {}
-    }
+    },
+    recipes: [
+      {
+        id: 1,
+        title: '',
+        description: '',
+        ingredients: [
+          {
+            name: '',
+            quantity: 1,
+            unit: '',
+          }
+        ],
+        instructions: ''
+      }
+    ],
+    users: [
+      { id: 1 }
+    ]
   }
 
   static contextType = OnlyTastefulContext;

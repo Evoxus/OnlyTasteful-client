@@ -19,3 +19,12 @@ export default function IngredientInput(props) {
     </div>
   )
 }
+
+IngredientInput.defaultProps = {
+  idx: 1,
+  data: {
+    name: '',
+    quantity: '',
+    unit: '',
+  },
+}
