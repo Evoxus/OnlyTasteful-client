@@ -1,0 +1,39 @@
+.hero {
+  margin-top: 25vh;
+  margin-bottom: 10vh;
+}
+
+.findYourDish {
+  background-color: #aaa;
+}
+
+.createRecipes {
+  background-color: #888;
+}
+
+.findYourDish,
+.createRecipes {
+  padding: 10px;
+  transition-duration: 200ms;
+}
+
+.findYourDish h3,
+.createRecipes h3,
+.findYourDish p,
+.createRecipes p {
+  margin: 0;
+  padding: 5px;
+}
+
+.findYourDish a,
+.createRecipes a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.findYourDish:hover,
+.createRecipes:hover {
+  transition-duration: 200ms;
+  transform: scale(0.95);
+}
