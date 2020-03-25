@@ -1,0 +1,13 @@
+.recipeItem {
+  border: 1px solid #888;
+  box-shadow: 1px 1px 4px #ccc, -1px 1px 4px #ccc;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+@media only screen and (min-width: 768px){
+  .recipeItem {
+    width: 350px;
+  }
+}
