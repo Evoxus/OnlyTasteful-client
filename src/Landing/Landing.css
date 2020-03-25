@@ -14,6 +14,7 @@
 .findYourDish,
 .createRecipes {
   padding: 10px;
+  margin: 5px;
   transition-duration: 200ms;
 }
 
@@ -35,5 +36,6 @@
 .findYourDish:hover,
 .createRecipes:hover {
   transition-duration: 200ms;
-  transform: scale(0.95);
+  background-color: antiquewhite;
+  box-shadow: 1px 1px 4px grey;
 }
