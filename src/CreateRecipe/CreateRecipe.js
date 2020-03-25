@@ -68,7 +68,8 @@ class CreateRecipe extends Component {
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
-          ]
+          ],
+          touched: true
         }
       })
     } else if (target.id === `ingredient_unit${idx}`) {
@@ -82,7 +83,8 @@ class CreateRecipe extends Component {
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
-          ]
+          ],
+          touched: true
         }
       })
     } else if (target.id === `ingredient_quantity${idx}`) {
@@ -96,7 +98,8 @@ class CreateRecipe extends Component {
               quantity: target.value,
             },
             ...ingredientValues.slice(idx + 1)
-          ]
+          ],
+          touched: true
         }
       })
     }
