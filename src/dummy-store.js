@@ -56,8 +56,8 @@ export const Recipes = [
         name: 'Prego sauce'
       },
       {
-        quantity: 'dash',
-        unit: '',
+        quantity: 1,
+        unit: 'dash',
         name: 'Cinnamon'
       },
     ],
