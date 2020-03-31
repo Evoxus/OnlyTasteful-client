@@ -5,11 +5,17 @@ import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './SignIn.css';
 
 class SignIn extends Component {
+  state = {
+    error: null,
+  }
   static defaultProps = {
     history: {
       push: () => { }
     },
   }
+
+  // store logged in user_name, id, and token in context
+  // setup expiry time 1 day out?
 
   static contextType = OnlyTastefulContext;
 
@@ -22,14 +28,14 @@ class SignIn extends Component {
       password: password.value
     })
       .then(res => {
-        user_name.value = ''
-        password.value = ''
+        console.log(user_name.value)
+        this.context.signIn(user_name.value)
         TokenService.saveAuthToken(res.authToken)
         this.props.history.push('/recipes')
       })
-      .catch(res => console.log(res.error))
-    user_name.value = ''
-    password.value = ''
+      .catch(res => this.setState({
+        error: res.error,
+      }))
   }
 
   render() {
@@ -39,6 +45,7 @@ class SignIn extends Component {
           <h2>Sign In</h2>
         </header>
         <section>
+          { this.state.error && <div className='errorMsg'>{this.state.error}</div>}
         <form onSubmit={this.onSignIn}>
           <label htmlFor='signin_user_name'>Username</label>
           <input type='text' name='user_name' id='signin_user_name' />

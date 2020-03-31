@@ -17,18 +17,19 @@ export default class Nav extends Component {
   onSignOut = (e) => {
     e.preventDefault()
     TokenService.clearAuthToken()
+    this.context.signOut()
     this.props.history.push('/')
   }
 
   render() {
-    const { currentUser } = this.context;
+    // const { currentUser } = this.context;
     return (
       <nav>
         <p><Link to='/'>OnlyTasteful</Link></p>
         <ul>
           <li><Link to='/recipes'>Recipes</Link></li>
           {
-            currentUser ?
+            TokenService.hasAuthToken() ?
               <>
                 <li><Link to='/createrecipe'>Create Recipe</Link></li>
                 <li><Link to='/' onClick={this.onSignOut}>Sign Out</Link></li>

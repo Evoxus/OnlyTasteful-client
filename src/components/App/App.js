@@ -35,9 +35,9 @@ class App extends Component {
     })
   }
 
-  handleSignIn = () => {
+  handleSignIn = (user_name) => {
     this.setState({
-      currentUser: true,
+      currentUser: user_name,
     })
   }
 
@@ -68,7 +68,7 @@ class App extends Component {
           <Nav />
           <Route exact path='/' component={Landing} />
           <Route path='/signup' component={SignUp} />
-          <Route path='/signin' component={SignIn} onSignIn={this.onSignIn}/>
+          <Route path='/signin' component={SignIn} />
           <Route exact path='/recipes' component={RecipeList} />
           <Route path='/recipes/:recipeId' component={RecipeDetail} />
           <Route path='/createrecipe' component={CreateRecipe} />
