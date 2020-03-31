@@ -15,7 +15,7 @@ class CreateRecipe extends Component {
       value: '',
       touched: false,
     },
-    description: {
+    recipe_description: {
       value: '',
       touched: false,
     },
@@ -23,8 +23,8 @@ class CreateRecipe extends Component {
       values: [
         {
           quantity: '',
-          unit: '',
-          name: '',
+          measurement_name: '',
+          ingredient_name: '',
         },
       ],
       touched: false,
@@ -48,7 +48,7 @@ class CreateRecipe extends Component {
 
   updateDescription(value) {
     this.setState({
-      description: {
+      recipe_description: {
         value: value,
         touched: true
       }
@@ -63,8 +63,8 @@ class CreateRecipe extends Component {
           values: [
             ...ingredientValues.slice(0, idx),
             {
-              name: target.value,
-              unit: ingredientValues[idx].unit,
+              ingredient_name: target.value,
+              measurement_name: ingredientValues[idx].measurement_name,
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
@@ -72,14 +72,14 @@ class CreateRecipe extends Component {
           touched: true
         }
       })
-    } else if (target.id === `ingredient_unit${idx}`) {
+    } else if (target.id === `measurement_name${idx}`) {
       this.setState({
         ingredients: {
           values: [
             ...ingredientValues.slice(0, idx),
             {
-              name: ingredientValues[idx].name,
-              unit: target.value,
+              ingredient_name: ingredientValues[idx].ingredient_name,
+              measurement_name: target.value,
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
@@ -93,8 +93,8 @@ class CreateRecipe extends Component {
           values: [
             ...ingredientValues.slice(0, idx),
             {
-              name: ingredientValues[idx].name,
-              unit: ingredientValues[idx].unit,
+              ingredient_name: ingredientValues[idx].ingredient_name,
+              measurement_name: ingredientValues[idx].measurement_name,
               quantity: target.value,
             },
             ...ingredientValues.slice(idx + 1)
@@ -119,7 +119,7 @@ class CreateRecipe extends Component {
     const newRecipe = {
       id: this.context.recipes.length + 1,
       title: this.state.title.value,
-      description: this.state.description.value,
+      recipe_description: this.state.recipe_description.value,
       ingredients: this.state.ingredients.values,
       instructions: this.state.cookingDirections.value,
       user_id: 2,
@@ -136,8 +136,8 @@ class CreateRecipe extends Component {
           ...this.state.ingredients.values,
           {
             quantity: '',
-            unit: '',
-            name: ''
+            measurement_name: '',
+            ingredient_name: ''
           },
         ],
       },
@@ -173,7 +173,7 @@ class CreateRecipe extends Component {
                 />
                 <label htmlFor='description'>Description</label>
                 <textarea
-                  name='description' id='description'
+                  name='recipe_description' id='recipe_description'
                   onChange={e => this.updateDescription(e.target.value)}
                 />
                 <label htmlFor='cookingDirections'>Cooking Directions</label>
