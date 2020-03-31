@@ -22,14 +22,14 @@ export default class Nav extends Component {
   }
 
   render() {
-    // const { currentUser } = this.context;
+    const { currentUser } = this.context;
     return (
       <nav>
         <p><Link to='/'>OnlyTasteful</Link></p>
         <ul>
           <li><Link to='/recipes'>Recipes</Link></li>
           {
-            TokenService.hasAuthToken() ?
+            currentUser ?
               <>
                 <li><Link to='/createrecipe'>Create Recipe</Link></li>
                 <li><Link to='/' onClick={this.onSignOut}>Sign Out</Link></li>

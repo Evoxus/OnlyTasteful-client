@@ -14,9 +14,6 @@ class SignIn extends Component {
     },
   }
 
-  // store logged in user_name, id, and token in context
-  // setup expiry time 1 day out?
-
   static contextType = OnlyTastefulContext;
 
   onSignIn = (e) => {
@@ -28,6 +25,9 @@ class SignIn extends Component {
       password: password.value
     })
       .then(res => {
+        this.setState({
+          error: null,
+        })
         console.log(user_name.value)
         this.context.signIn(user_name.value)
         TokenService.saveAuthToken(res.authToken)
