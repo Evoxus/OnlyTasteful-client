@@ -3,7 +3,7 @@ import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 
-class Nav extends Component {
+export default class Nav extends Component {
   static defaultProps = {
     history: {
       push: () => { }
@@ -40,5 +40,3 @@ class Nav extends Component {
     )
   }
 }
-
-export default Nav;
