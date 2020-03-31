@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
 import './RecipeDetail.css';
-import { findUser, findRecipe } from '../../services/recipe-helpers';
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import RecipesApiService from '../../services/recipes-api-service';
 
 class RecipeDetail extends Component {
+
+  state = {
+    recipe: {
+      id: 1,
+      user_name: '',
+      title: '',
+      description: '',
+      instructions: ''
+    },
+    ingredients: [
+      {
+        ingredient_name: '',
+        quantity: 1,
+        measurement: '',
+      }
+    ],
+  }
+
+  componentDidMount() {
+    const { recipeId } = this.props.match.params;
+    RecipesApiService.getRecipeDetails(recipeId)
+      .then(res => this.setState({
+        recipe: res.recipe,
+        ingredients: res.ingredients
+      }))
+  }
   static defaultProps = {
     match: {
       params: {}
     },
-    recipes: [
-      {
-        id: 1,
-        title: '',
-        description: '',
-        ingredients: [
-          {
-            name: '',
-            quantity: 1,
-            unit: '',
-          }
-        ],
-        instructions: ''
-      }
-    ],
     users: [
       { id: 1 }
     ]
@@ -31,23 +42,19 @@ class RecipeDetail extends Component {
   static contextType = OnlyTastefulContext;
 
   render() {
-    const { recipeId } = this.props.match.params;
-    const { users } = this.context;
-    const recipe = findRecipe(this.context.recipes, recipeId)
-    const ingredients = recipe.ingredients.map((ingredient, idx) =>
-      <li key={idx}>{ingredient.quantity} {ingredient.unit} {ingredient.name}</li>
+    const ingredients = this.state.ingredients.map((ingredient, idx) =>
+      <li key={idx}>{ingredient.quantity} {ingredient.measurement} {ingredient.ingredient_name}</li>
     )
-    const username = findUser(users, recipe.user_id).user_name
     return (
       <main className='RecipeDetail'>
         <header>
-          <h2>{recipe.title}</h2>
+          <h2>{this.state.recipe.title}</h2>
           <p>[<em>Img placeholder</em>]</p>
-          <p>added by: {username}</p>
+          <p>added by: {this.state.recipe.user_name}</p>
         </header>
         <section className="description">
           <p>
-            {recipe.description}
+            {this.state.recipe.recipe_description}
           </p>
         </section>
         <section>
@@ -59,7 +66,7 @@ class RecipeDetail extends Component {
         <section>
           <h3>Cooking Instructions</h3>
           <p>
-            {recipe.instructions}
+            {this.state.recipe.instructions}
           </p>
         </section>
       </main>
