@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './SignIn.css';
 
@@ -13,8 +15,21 @@ class SignIn extends Component {
 
   onSignIn = (e) => {
     e.preventDefault()
-    this.context.signIn()
-    this.props.history.push('/')
+    const { user_name, password } = e.target
+
+    AuthApiService.postLogin({
+      user_name: user_name.value,
+      password: password.value
+    })
+      .then(res => {
+        user_name.value = ''
+        password.value = ''
+        TokenService.saveAuthToken(res.authToken)
+        this.props.history.push('/recipes')
+      })
+      .catch(res => console.log(res.error))
+    user_name.value = ''
+    password.value = ''
   }
 
   render() {
