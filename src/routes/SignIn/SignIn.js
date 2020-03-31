@@ -28,7 +28,6 @@ class SignIn extends Component {
         this.setState({
           error: null,
         })
-        console.log(user_name.value)
         this.context.signIn(user_name.value)
         TokenService.saveAuthToken(res.authToken)
         this.props.history.push('/recipes')
