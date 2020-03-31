@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
-import './Nav.css';
 import { Link } from 'react-router-dom';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import TokenService from '../../services/token-service';
+import './Nav.css';
+
 
 export default class Nav extends Component {
   static defaultProps = {
@@ -14,7 +16,7 @@ export default class Nav extends Component {
 
   onSignOut = (e) => {
     e.preventDefault()
-    this.context.signOut()
+    TokenService.clearAuthToken()
     this.props.history.push('/')
   }
 
