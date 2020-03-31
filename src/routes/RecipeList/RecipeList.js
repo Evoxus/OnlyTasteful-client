@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import RecipeItem from '../RecipeItem/RecipeItem';
-import OnlyTastefulContext from '../OnlyTastefulContext';
+import RecipeItem from '../../components/RecipeItem/RecipeItem';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './RecipeList.css';
 
 class RecipeList extends Component {

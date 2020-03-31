@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Nav from '../Nav/Nav';
-import Landing from '../Landing/Landing';
+import Landing from '../../routes/Landing/Landing';
 import Footer from '../Footer/Footer';
-import RecipeList from '../RecipeList/RecipeList';
-import RecipeDetail from '../RecipeDetail/RecipeDetail';
-import CreateRecipe from '../CreateRecipe/CreateRecipe';
-import SignIn from '../SignIn/SignIn';
-import SignUp from '../SignUp/SignUp';
-import OnlyTastefulContext from '../OnlyTastefulContext';
-import { Recipes, Users } from '../dummy-store';
+import RecipeList from '../../routes/RecipeList/RecipeList';
+import RecipeDetail from '../../routes/RecipeDetail/RecipeDetail';
+import CreateRecipe from '../../routes/CreateRecipe/CreateRecipe';
+import SignIn from '../../routes/SignIn/SignIn';
+import SignUp from '../../routes/SignUp/SignUp';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import { Recipes, Users } from '../../dummy-store';
 import './App.css';
 
 // TODO: Add form validation for signin

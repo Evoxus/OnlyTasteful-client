@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OnlyTastefulContext from '../OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './SignIn.css';
 
 class SignIn extends Component {

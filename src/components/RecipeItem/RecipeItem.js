@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './RecipeItem.css';
-import { findUser } from '../recipe-helpers';
+import { findUser } from '../../services/recipe-helpers';
 
 function RecipeItem(props) {
   const userName = findUser(props.users, props.data.user_id).user_name

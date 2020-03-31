@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OnlyTastefulContext from '../OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 

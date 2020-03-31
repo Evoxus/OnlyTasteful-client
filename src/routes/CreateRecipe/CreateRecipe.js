@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import OnlyTastefulContext from '../OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './CreateRecipe.css';
-import IngredientInput from '../IngredientInput/IngredientInput';
+import IngredientInput from '../../components/IngredientInput/IngredientInput';
 
 class CreateRecipe extends Component {
   static defaultProps = {

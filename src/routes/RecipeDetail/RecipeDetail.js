@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './RecipeDetail.css';
-import { findUser, findRecipe } from '../recipe-helpers';
-import OnlyTastefulContext from '../OnlyTastefulContext';
+import { findUser, findRecipe } from '../../services/recipe-helpers';
+import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 
 class RecipeDetail extends Component {
   static defaultProps = {
