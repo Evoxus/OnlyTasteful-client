@@ -9,7 +9,7 @@ class RecipeList extends Component {
 
   render() {
     const recipes = this.context.recipes.map((recipe, idx) =>
-      <RecipeItem key={idx} data={recipe} users={this.context.users} />
+      <RecipeItem key={idx} data={recipe} />
     );
     return (
       <section className='recipeList'>

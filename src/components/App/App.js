@@ -9,7 +9,7 @@ import CreateRecipe from '../../routes/CreateRecipe/CreateRecipe';
 import SignIn from '../../routes/SignIn/SignIn';
 import SignUp from '../../routes/SignUp/SignUp';
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
-import { Recipes, Users } from '../../dummy-store';
+import RecipesApiService from '../../services/recipes-api-service';
 import './App.css';
 
 // TODO: Add form validation for signin
@@ -24,15 +24,14 @@ import './App.css';
 class App extends Component {
   state = {
     recipes: [],
-    users: [],
     currentUser: false,
   }
 
   componentDidMount() {
-    this.setState({
-      recipes: Recipes,
-      users: Users,
-    })
+    RecipesApiService.getRecipes()
+      .then(res => this.setState({
+        recipes: res,
+      }))
   }
 
   handleSignIn = (user_name) => {
@@ -56,7 +55,6 @@ class App extends Component {
   render() {
     const value = {
       recipes: this.state.recipes,
-      users: this.state.users,
       currentUser: this.state.currentUser,
       signIn: this.handleSignIn,
       signOut: this.handleSignOut,
