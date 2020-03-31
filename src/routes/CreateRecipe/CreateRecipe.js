@@ -3,6 +3,8 @@ import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './CreateRecipe.css';
 import IngredientInput from '../../components/IngredientInput/IngredientInput';
 
+// TODO: Make POST call to API 
+
 class CreateRecipe extends Component {
   static defaultProps = {
     history: {
