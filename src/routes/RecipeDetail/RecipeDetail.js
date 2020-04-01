@@ -30,6 +30,7 @@ class RecipeDetail extends Component {
         ingredients: res.ingredients
       }))
   }
+
   static defaultProps = {
     match: {
       params: {}
@@ -43,7 +44,8 @@ class RecipeDetail extends Component {
   }
 
   updateRecipe = () => {
-    this.props.history.push('/updaterecipe')
+    const { recipeId } = this.props.match.params;
+    this.props.history.push(`/recipes/${recipeId}/update`)
   }
 
   deleteRecipe = () => {

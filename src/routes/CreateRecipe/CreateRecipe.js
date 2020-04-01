@@ -4,8 +4,6 @@ import IngredientInput from '../../components/IngredientInput/IngredientInput';
 import RecipesApiService from '../../services/recipes-api-service';
 import './CreateRecipe.css';
 
-// TODO: Make POST call to API 
-
 class CreateRecipe extends Component {
   static defaultProps = {
     history: {
@@ -26,7 +24,7 @@ class CreateRecipe extends Component {
       values: [
         {
           quantity: '',
-          measurement_name: '',
+          measurement: '',
           ingredient_name: '',
         },
       ],
@@ -67,7 +65,7 @@ class CreateRecipe extends Component {
             ...ingredientValues.slice(0, idx),
             {
               ingredient_name: target.value,
-              measurement_name: ingredientValues[idx].measurement_name,
+              measurement: ingredientValues[idx].measurement,
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
@@ -75,14 +73,14 @@ class CreateRecipe extends Component {
           touched: true
         }
       })
-    } else if (target.id === `measurement_name${idx}`) {
+    } else if (target.id === `measurement${idx}`) {
       this.setState({
         ingredients: {
           values: [
             ...ingredientValues.slice(0, idx),
             {
               ingredient_name: ingredientValues[idx].ingredient_name,
-              measurement_name: target.value,
+              measurement: target.value,
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
@@ -97,7 +95,7 @@ class CreateRecipe extends Component {
             ...ingredientValues.slice(0, idx),
             {
               ingredient_name: ingredientValues[idx].ingredient_name,
-              measurement_name: ingredientValues[idx].measurement_name,
+              measurement: ingredientValues[idx].measurement,
               quantity: target.value,
             },
             ...ingredientValues.slice(idx + 1)
@@ -139,7 +137,7 @@ class CreateRecipe extends Component {
           ...this.state.ingredients.values,
           {
             quantity: '',
-            measurement_name: '',
+            measurement: '',
             ingredient_name: ''
           },
         ],
@@ -157,13 +155,13 @@ class CreateRecipe extends Component {
         ]
       }
     })
-  };
+  }
 
   render() {
     return (
       <main role="main" className='createRecipe'>
         <header>
-          <h2>Create/Modify Recipe</h2>
+          <h2>Create Recipe</h2>
         </header>
         <section>
           <form className='createRecipeForm' onSubmit={this.onCreateRecipe}>

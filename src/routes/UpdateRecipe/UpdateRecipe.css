@@ -1,0 +1,47 @@
+.updateRecipe {
+  margin-top: 60px;
+}
+
+.updateRecipeForm {
+  margin-bottom: 20px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateRecipeForm button,
+.updateRecipeForm input[type=submit] {
+  max-width: 200px;
+}
+
+.updateRecipeForm input,
+.updateRecipeForm textarea,
+.updateRecipeForm button {
+  border: 1px solid #737373;
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto;
+  width: 60%;
+  max-width: 650px;
+}
+
+.updateRecipeForm label {
+  display: block;
+}
+
+@media only screen and (min-width: 768px){
+  .flexContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .leftColumn,
+  .rightColum {
+    width: 40%;
+  }
+  .updateRecipeForm input,
+  .updateRecipeForm textarea {
+    width: 90%;
+  }
+}

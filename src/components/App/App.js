@@ -88,9 +88,9 @@ class App extends Component {
           <Route path='/signup' component={SignUp} />
           <Route path='/signin' component={SignIn} />
           <Route exact path='/recipes' component={RecipeList} />
-          <Route path='/recipes/:recipeId' component={RecipeDetail} />
+          <Route exact path='/recipes/:recipeId' component={RecipeDetail} />
           <Route path='/createrecipe' component={CreateRecipe} />
-          <Route path='/updaterecipe' component={UpdateRecipe} />
+          <Route path='/recipes/:recipeId/update' component={UpdateRecipe} />
           <Footer />
         </div>
       </OnlyTastefulContext.Provider>
