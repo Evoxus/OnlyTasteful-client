@@ -24,7 +24,7 @@ const RecipesApiService = {
           : res.json()
       )
   },
-  postRecipe(title, recipe_description, instructions, ingredients) {
+  postRecipe(newRecipe) {
     return fetch(`${config.API_ENDPOINT}/recipes`, {
       method: 'POST',
       headers: {
@@ -32,10 +32,10 @@ const RecipesApiService = {
         'Authorization': `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        title,
-        recipe_description,
-        instructions,
-        ingredients
+        title: newRecipe.title,
+        recipe_description: newRecipe.recipe_description,
+        instructions: newRecipe.instructions,
+        ingredients: newRecipe.ingredients
       }),
     })
       .then(res =>

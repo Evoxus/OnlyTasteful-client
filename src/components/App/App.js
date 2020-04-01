@@ -59,6 +59,7 @@ class App extends Component {
       signIn: this.handleSignIn,
       signOut: this.handleSignOut,
       createRecipe: this.handleCreateRecipe,
+      addRecipe: this.handleCreateRecipe
     }
     return (
       <OnlyTastefulContext.Provider value={value}>

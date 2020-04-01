@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
-import './CreateRecipe.css';
 import IngredientInput from '../../components/IngredientInput/IngredientInput';
+import RecipesApiService from '../../services/recipes-api-service';
+import './CreateRecipe.css';
 
 // TODO: Make POST call to API 
 
@@ -119,14 +120,14 @@ class CreateRecipe extends Component {
   onCreateRecipe = (e) => {
     e.preventDefault()
     const newRecipe = {
-      id: this.context.recipes.length + 1,
       title: this.state.title.value,
       recipe_description: this.state.recipe_description.value,
       ingredients: this.state.ingredients.values,
       instructions: this.state.cookingDirections.value,
-      user_id: 2,
     }
-    this.context.createRecipe(newRecipe)
+    RecipesApiService.postRecipe(newRecipe)
+    // add new recipes into context
+      .then(this.context.addRecipe)
     this.props.history.push('/recipes')
   }
 

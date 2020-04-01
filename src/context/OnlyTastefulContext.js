@@ -6,4 +6,5 @@ export default React.createContext({
   signIn: () => {},
   signOut: () => {},
   createRecipe: () => {},
+  addRecipe: () => {},
 })
