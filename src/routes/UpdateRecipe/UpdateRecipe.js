@@ -66,20 +66,44 @@ export default class UpdateRecipe extends Component {
   static contextType = OnlyTastefulContext;
 
   updateTitle(value) {
+    const recipe = this.state.recipe
     this.setState({
-      title: {
-        value: value,
-        touched: true
-      }
+      recipe: {
+        title: {
+          value: value,
+          touched: true
+        },
+        recipe_description: recipe.recipe_description,
+        instructions: recipe.instructions
+      },
     })
   }
 
   updateDescription(value) {
+    const recipe = this.state.recipe
     this.setState({
-      recipe_description: {
-        value: value,
-        touched: true
-      }
+      recipe: {
+        title: recipe.title,
+        recipe_description: {
+          value: value,
+          touched: true
+        },
+        instructions: recipe.instructions,
+      },
+    })
+  }
+
+  updateInstructions(value) {
+    const recipe = this.state.recipe
+    this.setState({
+      recipe: {
+        title: recipe.title,
+        recipe_description: recipe.recipe_description,
+        instructions: {
+          value: value,
+          touched: true
+        },
+      },
     })
   }
 
@@ -133,15 +157,6 @@ export default class UpdateRecipe extends Component {
     }
   }
 
-  updateCookingDirections(value) {
-    this.setState({
-      cookingDirections: {
-        value: value,
-        touched: true
-      }
-    })
-  }
-
   addIngredient = (e) => {
     e.preventDefault()
     this.setState({
@@ -170,6 +185,21 @@ export default class UpdateRecipe extends Component {
     })
   }
 
+  onUpdateRecipe = (e) => {
+    e.preventDefault()
+    const { recipeId } = this.props.match.params;
+    const updatedRecipe = {
+      title: this.state.recipe.title.value,
+      recipe_description: this.state.recipe.recipe_description.value,
+      ingredients: this.state.ingredients.values,
+      instructions: this.state.recipe.instructions.value,
+    }
+    RecipesApiService.updateRecipe(updatedRecipe, recipeId)
+      .then(this.context.updateRecipe)
+      .catch()
+    this.props.history.push('/recipes')
+  }
+
 
   render() {
     return (
@@ -183,21 +213,21 @@ export default class UpdateRecipe extends Component {
               <div className='leftColumn'>
                 <label htmlFor='recipe_title'>Title</label>
                 <input
-                  type='text' name='title' id='recipe_title' 
-                  value={this.state.recipe.title.value}
+                  type='text' name='title' id='recipe_title'
+                  defaultValue={this.state.recipe.title.value}
                   onChange={e => this.updateTitle(e.target.value)}
                 />
                 <label htmlFor='description'>Description</label>
                 <textarea
-                  name='recipe_description' id='recipe_description' 
-                  value={this.state.recipe.recipe_description.value}
+                  name='recipe_description' id='recipe_description'
+                  defaultValue={this.state.recipe.recipe_description.value}
                   onChange={e => this.updateDescription(e.target.value)}
                 />
-                <label htmlFor='cookingDirections'>Cooking Directions</label>
+                <label htmlFor='instructions'>Cooking Directions</label>
                 <textarea
-                  id='cookingDirections' name='cookingDirections' 
-                  value={this.state.recipe.instructions.value}
-                  onChange={e => this.updateCookingDirections(e.target.value)}
+                  id='instructions' name='instructions'
+                  defaultValue={this.state.recipe.instructions.value}
+                  onChange={e => this.updateInstructions(e.target.value)}
                 ></textarea>
               </div>
               <div className='rightColumn'>

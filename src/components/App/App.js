@@ -59,8 +59,15 @@ class App extends Component {
 
   handleCreateRecipe = (newRecipe) => {
     this.setState({
-      recipes: [ ...this.state.recipes, newRecipe ]
+      recipes: [...this.state.recipes, newRecipe]
     })
+  }
+
+  handleUpdateRecipe = () => {
+    RecipesApiService.getRecipes()
+      .then(res => this.setState({
+        recipes: res,
+      }))
   }
 
   handleDeleteRecipe = (recipe_id) => {
@@ -78,6 +85,7 @@ class App extends Component {
       signOut: this.handleSignOut,
       createRecipe: this.handleCreateRecipe,
       addRecipe: this.handleCreateRecipe,
+      updateRecipe: this.handleUpdateRecipe,
       deleteRecipe: this.handleDeleteRecipe
     }
     return (
