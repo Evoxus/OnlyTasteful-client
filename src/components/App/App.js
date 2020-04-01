@@ -40,9 +40,15 @@ class App extends Component {
     })
   }
 
+  handleSignUp = (user_name) => {
+    this.setState({
+      currentUser: user_name,
+    })
+  }
+
   handleSignOut = () => {
     this.setState({
-      currentUser: false,
+      currentUser: null,
     })
   }
 
@@ -63,6 +69,7 @@ class App extends Component {
       recipes: this.state.recipes,
       currentUser: this.state.currentUser,
       signIn: this.handleSignIn,
+      signUp: this.handleSignUp,
       signOut: this.handleSignOut,
       createRecipe: this.handleCreateRecipe,
       addRecipe: this.handleCreateRecipe,

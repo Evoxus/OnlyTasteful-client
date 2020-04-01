@@ -4,7 +4,7 @@ import TokenService from '../../services/token-service';
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import './SignIn.css';
 
-class SignIn extends Component {
+export default class SignIn extends Component {
   state = {
     error: null,
   }
@@ -57,5 +57,3 @@ class SignIn extends Component {
     )
   }
 }
-
-export default SignIn;
