@@ -183,17 +183,20 @@ export default class UpdateRecipe extends Component {
               <div className='leftColumn'>
                 <label htmlFor='recipe_title'>Title</label>
                 <input
-                  type='text' name='title' id='recipe_title' value={this.state.recipe.title.value}
+                  type='text' name='title' id='recipe_title' 
+                  value={this.state.recipe.title.value}
                   onChange={e => this.updateTitle(e.target.value)}
                 />
                 <label htmlFor='description'>Description</label>
                 <textarea
-                  name='recipe_description' id='recipe_description' value={this.state.recipe.recipe_description.value}
+                  name='recipe_description' id='recipe_description' 
+                  value={this.state.recipe.recipe_description.value}
                   onChange={e => this.updateDescription(e.target.value)}
                 />
                 <label htmlFor='cookingDirections'>Cooking Directions</label>
                 <textarea
-                  id='cookingDirections' name='cookingDirections' value={this.state.recipe.instructions.value}
+                  id='cookingDirections' name='cookingDirections' 
+                  value={this.state.recipe.instructions.value}
                   onChange={e => this.updateCookingDirections(e.target.value)}
                 ></textarea>
               </div>
