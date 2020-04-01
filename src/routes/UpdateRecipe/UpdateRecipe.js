@@ -191,8 +191,8 @@ export default class UpdateRecipe extends Component {
     const updatedRecipe = {
       title: this.state.recipe.title.value,
       recipe_description: this.state.recipe.recipe_description.value,
-      ingredients: this.state.ingredients.values,
       instructions: this.state.recipe.instructions.value,
+      ingredients: this.state.ingredients.values,
     }
     RecipesApiService.updateRecipe(updatedRecipe, recipeId)
       .then(this.context.updateRecipe)
