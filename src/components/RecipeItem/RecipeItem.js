@@ -7,7 +7,6 @@ function RecipeItem(props) {
     <div className='recipeItem'>
       <h4><Link to={`/recipes/${props.data.id}`}>{props.data.title}</Link></h4>
       <p>Added by: {props.data.user_name}</p>
-      <p>[<em>Img placeholder</em>]</p>
       <p>{props.data.recipe_description.slice(0, 51) + '...'}</p>
     </div>
   )

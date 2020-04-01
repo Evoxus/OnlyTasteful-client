@@ -66,7 +66,6 @@ class RecipeDetail extends Component {
       <main className='RecipeDetail'>
         <header>
           <h2>{this.state.recipe.title}</h2>
-          <p>[<em>Img placeholder</em>]</p>
           <p>added by: {this.state.recipe.user_name}</p>
         </header>
         <section className="description">
