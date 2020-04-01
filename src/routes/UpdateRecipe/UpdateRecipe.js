@@ -188,10 +188,11 @@ export default class UpdateRecipe extends Component {
   onUpdateRecipe = (e) => {
     e.preventDefault()
     const { recipeId } = this.props.match.params;
+    const recipe = this.state.recipe
     const updatedRecipe = {
-      title: this.state.recipe.title.value,
-      recipe_description: this.state.recipe.recipe_description.value,
-      instructions: this.state.recipe.instructions.value,
+      title: recipe.title.value,
+      recipe_description: recipe.recipe_description.value,
+      instructions: recipe.instructions.value,
       ingredients: this.state.ingredients.values,
     }
     RecipesApiService.updateRecipe(updatedRecipe, recipeId)
