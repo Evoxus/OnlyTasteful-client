@@ -197,7 +197,7 @@ export default class UpdateRecipe extends Component {
     RecipesApiService.updateRecipe(updatedRecipe, recipeId)
       .then(this.context.updateRecipe)
       .catch()
-    this.props.history.push('/recipes')
+    this.props.history.push(`/recipes/${recipeId}/`)
   }
 
 
