@@ -66,7 +66,7 @@ class RecipeDetail extends Component {
       <main className='RecipeDetail'>
         <header>
           <h2>{this.state.recipe.title}</h2>
-          <p>added by: {this.state.recipe.user_name}</p>
+          <p>Added by: {this.state.recipe.user_name}</p>
         </header>
         <section className="description">
           <p>
