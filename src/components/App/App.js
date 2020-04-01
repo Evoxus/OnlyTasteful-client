@@ -52,6 +52,12 @@ class App extends Component {
     })
   }
 
+  handleDeleteRecipe = (recipe_id) => {
+    this.setState({
+      recipes: this.state.recipes.filter(item => item.id !== parseInt(recipe_id))
+    })
+  }
+
   render() {
     const value = {
       recipes: this.state.recipes,
@@ -59,7 +65,8 @@ class App extends Component {
       signIn: this.handleSignIn,
       signOut: this.handleSignOut,
       createRecipe: this.handleCreateRecipe,
-      addRecipe: this.handleCreateRecipe
+      addRecipe: this.handleCreateRecipe,
+      deleteRecipe: this.handleDeleteRecipe
     }
     return (
       <OnlyTastefulContext.Provider value={value}>

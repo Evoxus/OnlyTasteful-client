@@ -55,7 +55,7 @@ const RecipesApiService = {
       .then(res =>
         (!res.ok)
           ? res.json().then(err => Promise.reject(err))
-          : res.json()
+          : res.ok
       )
   },
   updateRecipe(title, recipe_description, instructions, ingredients, recipe_id) {

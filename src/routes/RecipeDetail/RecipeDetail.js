@@ -34,9 +34,20 @@ class RecipeDetail extends Component {
     match: {
       params: {}
     },
+    history: {
+      push: () => { }
+    },
     users: [
       { id: 1 }
     ]
+  }
+
+  deleteRecipe = () => {
+    const { recipeId } = this.props.match.params;
+    RecipesApiService.deleteRecipe(recipeId)
+      .then(this.context.deleteRecipe(recipeId))
+      .then(this.props.history.push('/recipes'))
+      .catch(err => console.log(err))
   }
 
   static contextType = OnlyTastefulContext;
@@ -69,6 +80,11 @@ class RecipeDetail extends Component {
             {this.state.recipe.instructions}
           </p>
         </section>
+        {this.state.recipe.user_name === this.context.currentUser
+          ? <button type='button' className='deleteRecipe'
+            onClick={this.deleteRecipe}>Delete Recipe</button>
+          : null
+        }
       </main>
     )
   }
