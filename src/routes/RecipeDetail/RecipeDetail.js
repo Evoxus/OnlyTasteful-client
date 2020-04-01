@@ -81,8 +81,12 @@ class RecipeDetail extends Component {
           </p>
         </section>
         {this.state.recipe.user_name === this.context.currentUser
-          ? <button type='button' className='deleteRecipe'
-            onClick={this.deleteRecipe}>Delete Recipe</button>
+          ? <>
+            <button type='button' className='updateRecipe'
+              onClick={this.updateRecipe}>Update Recipe</button>
+            <button type='button' className='deleteRecipe'
+              onClick={this.deleteRecipe}>Delete Recipe</button>
+          </>
           : null
         }
       </main>

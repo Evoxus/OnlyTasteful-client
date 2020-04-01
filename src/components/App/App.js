@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+// Components
 import Nav from '../Nav/Nav';
 import Landing from '../../routes/Landing/Landing';
 import Footer from '../Footer/Footer';
+// Routes
 import RecipeList from '../../routes/RecipeList/RecipeList';
 import RecipeDetail from '../../routes/RecipeDetail/RecipeDetail';
 import CreateRecipe from '../../routes/CreateRecipe/CreateRecipe';
+import UpdateRecipe from '../../routes/UpdateRecipe/UpdateRecipe';
 import SignIn from '../../routes/SignIn/SignIn';
 import SignUp from '../../routes/SignUp/SignUp';
+// Context
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+// Service Object
 import RecipesApiService from '../../services/recipes-api-service';
 import './App.css';
 
@@ -85,6 +90,7 @@ class App extends Component {
           <Route exact path='/recipes' component={RecipeList} />
           <Route path='/recipes/:recipeId' component={RecipeDetail} />
           <Route path='/createrecipe' component={CreateRecipe} />
+          <Route path='/updaterecipe' component={UpdateRecipe} />
           <Footer />
         </div>
       </OnlyTastefulContext.Provider>
