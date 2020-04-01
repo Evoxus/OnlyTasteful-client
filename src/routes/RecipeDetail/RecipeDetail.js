@@ -42,6 +42,10 @@ class RecipeDetail extends Component {
     ]
   }
 
+  updateRecipe = () => {
+    this.props.history.push('/updaterecipe')
+  }
+
   deleteRecipe = () => {
     const { recipeId } = this.props.match.params;
     RecipesApiService.deleteRecipe(recipeId)
