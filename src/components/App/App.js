@@ -18,10 +18,6 @@ import './App.css';
 // TODO: Add form validation for create recipe
 // TODO: Add error boundary and tests
 
-/* ---- NOTES ----
-  * When user signed in show buttons for delete and modify on their own recipes, will need auth for this
-*/
-
 class App extends Component {
   render() {
     return (
