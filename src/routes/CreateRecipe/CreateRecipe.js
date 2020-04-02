@@ -124,7 +124,6 @@ class CreateRecipe extends Component {
       instructions: this.state.instructions.value,
     }
     RecipesApiService.postRecipe(newRecipe)
-      .then(res => this.context.addRecipe(res))
       .catch()
     this.props.history.push('/recipes')
   }

@@ -37,7 +37,7 @@ class RecipeDetail extends Component {
     this.props.history.push(`/recipes/${recipeId}/update`)
   }
 
-  deleteRecipe = () => {
+  handleDeleteRecipe = () => {
     const { recipeId } = this.props.match.params;
     RecipesApiService.deleteRecipe(recipeId)
       .then(this.context.deleteRecipe(recipeId))
@@ -78,7 +78,7 @@ class RecipeDetail extends Component {
             <button type='button' className='updateRecipe'
               onClick={this.updateRecipe}>Update Recipe</button>
             <button type='button' className='deleteRecipe'
-              onClick={this.deleteRecipe}>Delete Recipe</button>
+              onClick={this.handleDeleteRecipe}>Delete Recipe</button>
           </>
           : null
         }
