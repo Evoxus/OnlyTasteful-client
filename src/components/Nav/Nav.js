@@ -25,17 +25,17 @@ export default class Nav extends Component {
     const { currentUser } = this.context;
     return (
       <nav>
-        <p><Link to='/'>OnlyTasteful</Link></p>
+        <p><Link className='appName' to='/'>OnlyTasteful</Link></p>
         <ul>
-          <li><Link to='/recipes'>Recipes</Link></li>
+          <li><Link className='navItem' to='/recipes'>Recipes</Link></li>
           {
             currentUser ?
               <>
-                <li><Link to='/createrecipe'>Create Recipe</Link></li>
-                <li><Link to='/' onClick={this.onSignOut}>Sign Out</Link></li>
+                <li><Link className='navItem' to='/createrecipe'>Create Recipe</Link></li>
+                <li><Link className='navItem' to='/' onClick={this.onSignOut}>Sign Out</Link></li>
               </> : <>
-                <li><Link to='/signin'>Sign In</Link></li>
-                <li><Link to='/signup'>Sign Up</Link></li>
+                <li><Link className='navItem' to='/signin'>Sign In</Link></li>
+                <li><Link className='navItem' to='/signup'>Sign Up</Link></li>
               </>
           }
         </ul>

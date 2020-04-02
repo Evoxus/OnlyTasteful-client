@@ -7,7 +7,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: #737373;
+  background-color: #A38257;
   justify-content: space-evenly;
 }
 
@@ -22,3 +22,26 @@ nav ul li {
   margin-left: 10px;
 }
 
+.appName {
+  color: #FFDFB6;
+  text-decoration: none;
+  transition-duration: 100ms;
+}
+
+.appName:hover {
+  color: #6B5332;
+  background-color: #FFDFB6;
+  transition-duration: 100ms;
+}
+
+.navItem {
+  color: #FFE6B6;
+  text-decoration: none;
+  transition-duration: 100ms;
+}
+
+.navItem:hover {
+  color: #FFE6B6;
+  background-color: #6B5832;
+  transition-duration: 100ms;
+}
