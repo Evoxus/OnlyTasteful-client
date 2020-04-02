@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './RecipeDetail.css';
 import OnlyTastefulContext from '../../context/OnlyTastefulContext';
 import RecipesApiService from '../../services/recipes-api-service';
+import './RecipeDetail.css';
 
 class RecipeDetail extends Component {
 
