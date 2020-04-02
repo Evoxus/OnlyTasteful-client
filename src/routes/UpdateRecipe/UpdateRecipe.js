@@ -196,9 +196,22 @@ export default class UpdateRecipe extends Component {
       ingredients: this.state.ingredients.values,
     }
     RecipesApiService.updateRecipe(updatedRecipe, recipeId)
-      .then(this.context.updateRecipe)
-      .catch()
-    this.props.history.push(`/recipes/${recipeId}/`)
+      .then(
+        Promise.all([this.context.setIngredients({
+          ingredients: updatedRecipe.ingredients
+        }),
+        this.context.setRecipe({
+          recipe: {
+            title: updatedRecipe.title,
+            recipe_description: updatedRecipe.recipe_description,
+            instructions: updatedRecipe.instructions,
+            id: this.context.recipeDetails.recipe.id,
+            user_name: this.context.recipeDetails.recipe.user_name
+          }
+        })
+        ]))
+        .then(this.props.history.push(`/recipes/${recipeId}/`))
+        .catch(err => this.context.setError(err))
   }
 
 
