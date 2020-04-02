@@ -30,7 +30,7 @@ export default class UpdateRecipe extends Component {
       values: [
         {
           quantity: '',
-          measurement_name: '',
+          measurement: '',
           ingredient_name: '',
         },
       ],
@@ -116,7 +116,7 @@ export default class UpdateRecipe extends Component {
             ...ingredientValues.slice(0, idx),
             {
               ingredient_name: target.value,
-              measurement_name: ingredientValues[idx].measurement_name,
+              measurement: ingredientValues[idx].measurement,
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
@@ -124,14 +124,14 @@ export default class UpdateRecipe extends Component {
           touched: true
         }
       })
-    } else if (target.id === `measurement_name${idx}`) {
+    } else if (target.id === `measurement${idx}`) {
       this.setState({
         ingredients: {
           values: [
             ...ingredientValues.slice(0, idx),
             {
               ingredient_name: ingredientValues[idx].ingredient_name,
-              measurement_name: target.value,
+              measurement: target.value,
               quantity: ingredientValues[idx].quantity,
             },
             ...ingredientValues.slice(idx + 1)
@@ -146,7 +146,7 @@ export default class UpdateRecipe extends Component {
             ...ingredientValues.slice(0, idx),
             {
               ingredient_name: ingredientValues[idx].ingredient_name,
-              measurement_name: ingredientValues[idx].measurement_name,
+              measurement: ingredientValues[idx].measurement,
               quantity: target.value,
             },
             ...ingredientValues.slice(idx + 1)
@@ -165,7 +165,7 @@ export default class UpdateRecipe extends Component {
           ...this.state.ingredients.values,
           {
             quantity: '',
-            measurement_name: '',
+            measurement: '',
             ingredient_name: ''
           },
         ],
