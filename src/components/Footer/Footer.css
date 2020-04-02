@@ -1,5 +1,9 @@
 footer {
-  background-color: #737373;
+  position: fixed;
+  bottom: 0;
+  background-color: #99AACD;
+  border: 1px solid #131B2D;
+  color: #253048;
   width: 100%;
   height: 25px;
   text-align: center;

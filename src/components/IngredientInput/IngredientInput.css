@@ -1,6 +1,7 @@
 .IngredientInput {
   margin: 10px;
-  border: 1px solid #aaa;
+  border: 1px solid #94B3C9;
   border-radius: 5px;
-  box-shadow: 1px 1px 4px #ccc, -1px 1px 4px #ccc;
+  color: #11212C;
+  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
 }

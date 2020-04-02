@@ -1,9 +1,14 @@
 .recipeItem {
-  border: 1px solid #888;
-  box-shadow: 1px 1px 4px #ccc, -1px 1px 4px #ccc;
+  border: 1px solid #94B3C9;
+  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
+}
+
+.recipeItemContent {
+  text-decoration: none;
+  color: #11212C;
 }
 
 @media only screen and (min-width: 768px){

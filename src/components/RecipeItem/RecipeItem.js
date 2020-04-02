@@ -4,11 +4,13 @@ import './RecipeItem.css';
 
 function RecipeItem(props) {
   return (
-    <div className='recipeItem'>
-      <h4><Link to={`/recipes/${props.data.id}`}>{props.data.title}</Link></h4>
-      <p>Added by: {props.data.user_name}</p>
-      <p>{props.data.recipe_description.slice(0, 51) + '...'}</p>
-    </div>
+    <Link className='recipeItemContent' to={`/recipes/${props.data.id}`}>
+      <div className='recipeItem'>
+        <h4 className='recipeItemContent'>{props.data.title}</h4>
+        <p className='recipeItemContent'>Added by: {props.data.user_name}</p>
+        <p className='recipeItemContent'>{props.data.recipe_description.slice(0, 51) + '...'}</p>
+      </div>
+    </Link>
   )
 }
 
