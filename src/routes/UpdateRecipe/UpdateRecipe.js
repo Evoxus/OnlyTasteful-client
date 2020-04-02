@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IngredientInput from '../../components/IngredientInput/IngredientInput';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/RecipesContext';
 import RecipesApiService from '../../services/recipes-api-service';
 import './UpdateRecipe.css';
 

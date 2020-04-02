@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/RecipesContext';
 import IngredientInput from '../../components/IngredientInput/IngredientInput';
 import RecipesApiService from '../../services/recipes-api-service';
 import './CreateRecipe.css';
@@ -30,7 +30,7 @@ class CreateRecipe extends Component {
       ],
       touched: false,
     },
-    cookingDirections: {
+    instructions: {
       value: '',
       touched: false,
     }
@@ -106,9 +106,9 @@ class CreateRecipe extends Component {
     }
   }
 
-  updateCookingDirections(value) {
+  updateInstructions(value) {
     this.setState({
-      cookingDirections: {
+      instructions: {
         value: value,
         touched: true
       }
@@ -121,10 +121,10 @@ class CreateRecipe extends Component {
       title: this.state.title.value,
       recipe_description: this.state.recipe_description.value,
       ingredients: this.state.ingredients.values,
-      instructions: this.state.cookingDirections.value,
+      instructions: this.state.instructions.value,
     }
     RecipesApiService.postRecipe(newRecipe)
-      .then(this.context.addRecipe)
+      .then(res => this.context.addRecipe(res))
       .catch()
     this.props.history.push('/recipes')
   }
@@ -177,10 +177,10 @@ class CreateRecipe extends Component {
                   name='recipe_description' id='recipe_description'
                   onChange={e => this.updateDescription(e.target.value)}
                 />
-                <label htmlFor='cookingDirections'>Cooking Directions</label>
+                <label htmlFor='instructions'>Cooking Directions</label>
                 <textarea
-                  id='cookingDirections' name='cookingDirections'
-                  onChange={e => this.updateCookingDirections(e.target.value)}
+                  id='instructions' name='instructions'
+                  onChange={e => this.updateInstructions(e.target.value)}
                 ></textarea>
               </div>
               <div className='rightColumn'>

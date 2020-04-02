@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/RecipesContext';
 import TokenService from '../../services/token-service';
 import './Nav.css';
 

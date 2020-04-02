@@ -1,35 +1,21 @@
 import React, { Component } from 'react';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import RecipeContext from '../../context/RecipesContext';
 import RecipesApiService from '../../services/recipes-api-service';
 import './RecipeDetail.css';
 
 class RecipeDetail extends Component {
 
-  state = {
-    recipe: {
-      id: 1,
-      user_name: '',
-      title: '',
-      description: '',
-      instructions: ''
-    },
-    ingredients: [
-      {
-        ingredient_name: '',
-        quantity: 1,
-        measurement: '',
-      }
-    ],
-  }
-
   componentDidMount() {
     const { recipeId } = this.props.match.params;
     RecipesApiService.getRecipeDetails(recipeId)
-      .then(res => this.setState({
-        recipe: res.recipe,
-        ingredients: res.ingredients
-      }))
+      .then(res => {
+        this.context.setRecipe(res.recipe)
+        this.context.setIngredients(res.ingredients)
+      })
+      .catch(err => this.context.setError(err))
   }
+
+  static contextType = RecipeContext;
 
   static defaultProps = {
     match: {
@@ -56,21 +42,20 @@ class RecipeDetail extends Component {
       .catch(err => console.log(err))
   }
 
-  static contextType = OnlyTastefulContext;
-
   render() {
-    const ingredients = this.state.ingredients.map((ingredient, idx) =>
+    const ingredients = this.context.recipeDetails.ingredients.map((ingredient, idx) =>
       <li key={idx}>{ingredient.quantity} {ingredient.measurement} {ingredient.ingredient_name}</li>
     )
+    const recipe = this.context.recipeDetails.recipe
     return (
       <main className='RecipeDetail'>
         <header>
-          <h2>{this.state.recipe.title}</h2>
-          <p>Added by: {this.state.recipe.user_name}</p>
+          <h2>{recipe.title}</h2>
+          <p>Added by: {recipe.user_name}</p>
         </header>
         <section className="description">
           <p>
-            {this.state.recipe.recipe_description}
+            {recipe.recipe_description}
           </p>
         </section>
         <section>
@@ -82,10 +67,10 @@ class RecipeDetail extends Component {
         <section>
           <h3>Cooking Instructions</h3>
           <p>
-            {this.state.recipe.instructions}
+            {recipe.instructions}
           </p>
         </section>
-        {this.state.recipe.user_name === this.context.currentUser
+        {recipe.user_name === this.context.currentUser
           ? <>
             <button type='button' className='updateRecipe'
               onClick={this.updateRecipe}>Update Recipe</button>

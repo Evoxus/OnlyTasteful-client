@@ -15,7 +15,7 @@ export default function IngredientInput(props) {
         onChange={(e) => props.handleChange(e.target, props.idx)} defaultValue={props.data.quantity} />
       <label htmlFor={`ingredient${props.idx}`}>Measurement Unit</label>
       <input type='text'
-        name={`measurement_name${props.idx}`} id={`measurement_name${props.idx}`} 
+        name={`measurement${props.idx}`} id={`measurement${props.idx}`} 
         onChange={(e) => props.handleChange(e.target, props.idx)} defaultValue={props.data.measurement} />
       {props.arrLength > 1 ?
         <button type="button"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import OnlyTastefulContext from '../../context/RecipesContext';
 import './SignIn.css';
 
 export default class SignIn extends Component {

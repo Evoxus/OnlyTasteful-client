@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import RecipeItem from '../../components/RecipeItem/RecipeItem';
-import OnlyTastefulContext from '../../context/OnlyTastefulContext';
+import RecipesContext from '../../context/RecipesContext';
+import RecipesApiService from '../../services/recipes-api-service';
 import './RecipeList.css';
 
 class RecipeList extends Component {
+
+  componentDidMount() {
+    this.context.clearError()
+    RecipesApiService.getRecipes()
+      .then(res => this.context.setRecipesList(res))
+      .catch(this.context.setError)
+  }
   
-  static contextType = OnlyTastefulContext;
+  static contextType = RecipesContext;
 
   render() {
     const recipes = this.context.recipes.map((recipe, idx) =>
