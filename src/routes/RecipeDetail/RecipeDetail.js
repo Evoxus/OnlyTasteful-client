@@ -3,6 +3,9 @@ import RecipeContext from '../../context/RecipesContext';
 import RecipesApiService from '../../services/recipes-api-service';
 import './RecipeDetail.css';
 
+// TODO: Get update working with context
+// TODO: Get delete working with context
+
 class RecipeDetail extends Component {
 
   componentDidMount() {
