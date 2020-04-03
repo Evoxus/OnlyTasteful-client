@@ -21,7 +21,7 @@ RecipeItem.defaultProps = {
     id: 1,
     title: '',
     user_id: 1,
-    description: '',
+    recipe_description: '',
   },
   users: [
     { id: 1 }

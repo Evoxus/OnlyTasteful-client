@@ -41,7 +41,7 @@ class RecipeDetail extends Component {
     const { recipeId } = this.props.match.params;
     console.log('before delete context', recipeId)
     RecipesApiService.deleteRecipe(recipeId)
-      .then(res => {this.context.deleteRecipe(recipeId)})
+      .then(res => { this.context.deleteRecipe(recipeId) })
       .then(this.props.history.push('/recipes'))
       .catch(err => console.log(err))
   }

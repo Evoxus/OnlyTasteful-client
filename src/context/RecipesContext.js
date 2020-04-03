@@ -89,7 +89,7 @@ export class RecipesProvider extends Component {
     })
   }
 
-  setRecipe = (recipe) => {
+  handleSetRecipe = (recipe) => {
     this.setState({
       recipeDetails: {
         recipe: recipe,
@@ -98,7 +98,7 @@ export class RecipesProvider extends Component {
     })
   }
 
-  setIngredients = (ingredients) => {
+  handleSetIngredients = (ingredients) => {
     this.setState({
       recipeDetails: {
         recipe: this.state.recipeDetails.recipe,
@@ -118,8 +118,8 @@ export class RecipesProvider extends Component {
       signOut: this.handleSignOut,
       addRecipe: this.handleCreateRecipe,
       deleteRecipe: this.handleDeleteRecipe,
-      setRecipe: this.setRecipe,
-      setIngredients: this.setIngredients,
+      setRecipe: this.handleSetRecipe,
+      setIngredients: this.handleSetIngredients,
       setError: this.setError,
       clearError: this.clearError
     }

@@ -9,6 +9,9 @@ export default class UpdateRecipe extends Component {
     history: {
       push: () => { }
     },
+    match: {
+      params: {},
+    },
   }
 
   state = {
