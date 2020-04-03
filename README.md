@@ -1,5 +1,6 @@
 # OnlyTasteful
 
+Find it live at:[https://only-tasteful.now.sh/]](https://only-tasteful.now.sh/)
 A cook book for the modern cook. This project is a solution to keeping one's recipes in a basic note taking
 app. This is a purpose built app for collecting recipes, modifying them, noting changes you've tried, ect.
 
