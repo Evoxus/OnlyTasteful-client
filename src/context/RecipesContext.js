@@ -13,8 +13,7 @@ const RecipesContext = React.createContext({
   addRecipe: () => {},
   deleteRecipe: () => {},
   setRecipeList: () => {},
-  setRecipe: () => {},
-  setIngredients: () => {},
+  setRecipeDetails: () => {},
   updateRecipe: () => {},
   updateIngredients: () => {},
 })
@@ -89,19 +88,10 @@ export class RecipesProvider extends Component {
     })
   }
 
-  handleSetRecipe = (recipe) => {
+  handleSetRecipeDetails = (recipe, ingredients) => {
     this.setState({
       recipeDetails: {
         recipe: recipe,
-        ingredients: this.state.recipeDetails.ingredients
-      }
-    })
-  }
-
-  handleSetIngredients = (ingredients) => {
-    this.setState({
-      recipeDetails: {
-        recipe: this.state.recipeDetails.recipe,
         ingredients: ingredients
       }
     })
@@ -118,8 +108,7 @@ export class RecipesProvider extends Component {
       signOut: this.handleSignOut,
       addRecipe: this.handleCreateRecipe,
       deleteRecipe: this.handleDeleteRecipe,
-      setRecipe: this.handleSetRecipe,
-      setIngredients: this.handleSetIngredients,
+      setRecipeDetails: this.handleSetRecipeDetails,
       setError: this.setError,
       clearError: this.clearError
     }

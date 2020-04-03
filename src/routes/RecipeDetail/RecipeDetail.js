@@ -12,8 +12,7 @@ class RecipeDetail extends Component {
     const { recipeId } = this.props.match.params;
     RecipesApiService.getRecipeDetails(recipeId)
       .then(res => {
-        this.context.setRecipe(res.recipe)
-        this.context.setIngredients(res.ingredients)
+        this.context.setRecipeDetails(res.recipe, res.ingredients)
       })
       .catch(err => this.context.setError(err))
   }

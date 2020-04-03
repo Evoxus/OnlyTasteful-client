@@ -8,11 +8,11 @@ import './index.css';
 
 
 ReactDOM.render(
-  <RecipesProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-  </RecipesProvider>,
+  <BrowserRouter>
+    <RecipesProvider>
+      <App />
+    </RecipesProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
