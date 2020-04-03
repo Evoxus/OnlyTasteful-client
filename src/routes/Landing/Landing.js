@@ -2,7 +2,7 @@ import React from 'react';
 import './Landing.css';
 import { Link } from 'react-router-dom';
 
-function Landing() {
+export default function Landing() {
   return (
     <main>
       <section className="hero">
@@ -30,5 +30,3 @@ function Landing() {
     </main>
   )
 }
-
-export default Landing;
