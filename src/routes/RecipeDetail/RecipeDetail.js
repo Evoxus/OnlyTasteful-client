@@ -6,7 +6,7 @@ import './RecipeDetail.css';
 // TODO: Get update working with context
 // TODO: Get delete working with context
 
-class RecipeDetail extends Component {
+export default class RecipeDetail extends Component {
 
   componentDidMount() {
     const { recipeId } = this.props.match.params;
@@ -88,5 +88,3 @@ class RecipeDetail extends Component {
     )
   }
 }
-
-export default RecipeDetail;

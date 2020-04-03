@@ -4,7 +4,7 @@ import IngredientInput from '../../components/IngredientInput/IngredientInput';
 import RecipesApiService from '../../services/recipes-api-service';
 import './CreateRecipe.css';
 
-class CreateRecipe extends Component {
+export default class CreateRecipe extends Component {
   static defaultProps = {
     history: {
       push: () => { }
@@ -200,5 +200,3 @@ class CreateRecipe extends Component {
     )
   }
 }
-
-export default CreateRecipe;
