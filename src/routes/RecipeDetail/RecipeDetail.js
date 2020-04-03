@@ -64,15 +64,17 @@ class RecipeDetail extends Component {
         </section>
         <section>
           <h3>Ingredients List</h3>
-          <ul>
+          <ul className='ingredients'>
             {ingredients}
           </ul>
         </section>
         <section>
           <h3>Cooking Instructions</h3>
-          <p>
-            {recipe.instructions}
-          </p>
+          <div className='instructions'>
+            {recipe.instructions.split(/\n \r|\n/).map((instructions, idx) => 
+              <p key={idx}>{instructions}</p>
+            )}
+          </div>
         </section>
         {recipe.user_name === this.context.currentUser
           ? <>

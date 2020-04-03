@@ -2,6 +2,25 @@
   margin-top: 60px;
 }
 
-.RecipeDetail ul{
+.ingredients {
+  border: 1px solid #94B3C9;
+  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
   list-style: none;
+  margin: 10px;
+  padding-left: 15%;
+  text-align: left;
+}
+
+.instructions {
+  border: 1px solid #94B3C9;
+  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
+  margin: 10px;
+  padding-left: 10%;
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px){
+  .ingredients {
+    padding-left: 40%;
+  }
 }

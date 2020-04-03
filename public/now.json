@@ -1,6 +1,5 @@
 {
   "version": 1,
-  "alias": "only-tasteful",
   "routes": [
       { "handle": "filesystem" },
       { "src": "/.*", "dest": "/index.html" }
