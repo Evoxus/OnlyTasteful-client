@@ -84,7 +84,6 @@ export class RecipesProvider extends Component {
   }
 
   handleSetRecipeDetails = (recipe, ingredients) => {
-    console.log(recipe)
     this.setState({
       recipeDetails: {
         recipe: recipe,
