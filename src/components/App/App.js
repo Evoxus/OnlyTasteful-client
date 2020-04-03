@@ -18,22 +18,18 @@ import './App.css';
 // TODO: Add form validation for create recipe
 // TODO: Add error boundary and tests
 
-class App extends Component {
-  render() {
-    return (
-        <div className="App">
-          <Nav />
-          <Route exact path='/' component={Landing} />
-          <Route path='/signup' component={SignUp} />
-          <Route path='/signin' component={SignIn} />
-          <Route exact path='/recipes' component={RecipeList} />
-          <Route exact path='/recipes/:recipeId' component={RecipeDetail} />
-          <Route path='/createrecipe' component={CreateRecipe} />
-          <Route path='/recipes/:recipeId/update' component={UpdateRecipe} />
-          <Footer />
-        </div>
-    )
-  };
+export default function App() {
+  return (
+    <div className="App">
+      <Nav />
+      <Route exact path='/' component={Landing} />
+      <Route path='/signup' component={SignUp} />
+      <Route path='/signin' component={SignIn} />
+      <Route exact path='/recipes' component={RecipeList} />
+      <Route exact path='/recipes/:recipeId' component={RecipeDetail} />
+      <Route path='/createrecipe' component={CreateRecipe} />
+      <Route path='/recipes/:recipeId/update' component={UpdateRecipe} />
+      <Footer />
+    </div>
+  )
 }
-
-export default App;
