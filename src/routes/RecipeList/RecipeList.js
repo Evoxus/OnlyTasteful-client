@@ -4,7 +4,7 @@ import RecipesContext from '../../context/RecipesContext';
 import RecipesApiService from '../../services/recipes-api-service';
 import './RecipeList.css';
 
-class RecipeList extends Component {
+export default class RecipeList extends Component {
 
   componentDidMount() {
     this.context.clearError()
@@ -26,5 +26,3 @@ class RecipeList extends Component {
     )
   }
 }
-
-export default RecipeList
