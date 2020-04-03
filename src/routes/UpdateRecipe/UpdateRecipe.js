@@ -209,7 +209,11 @@ export default class UpdateRecipe extends Component {
           },
           updatedRecipe.ingredients,
         ))
-      .then(this.props.history.push(`/recipes/${recipeId}/`))
+      .then(res => {
+        // Dirty hack to make it update correctly
+        let that = this;
+        setTimeout(function() {
+          that.props.history.push(`/recipes/${recipeId}/`)}, 500)})
       .catch(err => this.context.setError(err))
   }
 

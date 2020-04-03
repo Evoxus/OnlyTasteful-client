@@ -124,9 +124,9 @@ export default class CreateRecipe extends Component {
       instructions: this.state.instructions.value,
     }
     RecipesApiService.postRecipe(newRecipe)
-    .then(this.context.addRecipe(newRecipe))
+      .then(res => this.props.history.push('/recipes'))
       .catch()
-    this.props.history.push('/recipes')
+
   }
 
   addIngredient = (e) => {
@@ -185,7 +185,7 @@ export default class CreateRecipe extends Component {
               </div>
               <div className='rightColumn'>
                 {this.state.ingredients.values.map((ingredient, idx) =>
-                  <IngredientInput key={idx} idx={idx} 
+                  <IngredientInput key={idx} idx={idx}
                     data={ingredient} arrLength={this.state.ingredients.values.length}
                     handleChange={this.updateIngredients} onClick={e => this.removeIngredients(idx)}
                   />

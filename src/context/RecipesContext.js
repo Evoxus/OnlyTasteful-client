@@ -5,17 +5,17 @@ const RecipesContext = React.createContext({
   currentUser: null,
   recipeDetails: {},
   ingredients: [],
-  setError: () => {},
-  clearError: () => {},
-  signIn: () => {},
-  signOut: () => {},
-  createRecipe: () => {},
-  addRecipe: () => {},
-  deleteRecipe: () => {},
-  setRecipeList: () => {},
-  setRecipeDetails: () => {},
-  updateRecipe: () => {},
-  updateIngredients: () => {},
+  setError: () => { },
+  clearError: () => { },
+  signIn: () => { },
+  signOut: () => { },
+  createRecipe: () => { },
+  addRecipe: () => { },
+  deleteRecipe: () => { },
+  setRecipeList: () => { },
+  setRecipeDetails: () => { },
+  updateRecipe: () => { },
+  updateIngredients: () => { },
 })
 
 export default RecipesContext
@@ -43,10 +43,8 @@ export class RecipesProvider extends Component {
     error: null,
   }
 
-
-
   setRecipesList = recipes => {
-    this.setState( { recipes })
+    this.setState({ recipes })
   }
 
   setError = error => {
@@ -76,19 +74,17 @@ export class RecipesProvider extends Component {
     })
   }
 
-  handleCreateRecipe = (newRecipe) => {
-    this.setState({
-      recipes: [...this.state.recipes, newRecipe]
-    })
-  }
-
   handleDeleteRecipe = (recipe_id) => {
+    // A little hack to get state to update properly
+    // eslint-disable-next-line
+    let x = '';
     this.setState({
       recipes: this.state.recipes.filter(item => item.id !== parseInt(recipe_id))
     })
   }
 
   handleSetRecipeDetails = (recipe, ingredients) => {
+    console.log(recipe)
     this.setState({
       recipeDetails: {
         recipe: recipe,
@@ -114,7 +110,7 @@ export class RecipesProvider extends Component {
     }
     return (
       <RecipesContext.Provider value={value}>
-        { this.props.children }
+        {this.props.children}
       </RecipesContext.Provider>
     )
   }
