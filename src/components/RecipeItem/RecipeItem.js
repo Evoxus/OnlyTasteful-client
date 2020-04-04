@@ -8,7 +8,9 @@ function RecipeItem(props) {
       <div className='recipeItem'>
         <h4 className='recipeItemContent'>{props.data.title}</h4>
         <p className='recipeItemContent'>Added by: {props.data.user_name}</p>
-        <p className='recipeItemContent'>{props.data.recipe_description.slice(0, 51) + '...'}</p>
+        <p className='recipeItemContent'>{props.data.recipe_description.length > 50 
+          ? props.data.recipe_description.slice(0, 51) + '...'
+          : props.data.recipe_description }</p>
       </div>
     </Link>
   )

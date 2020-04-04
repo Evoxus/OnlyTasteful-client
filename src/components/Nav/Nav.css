@@ -56,3 +56,10 @@ nav ul li {
   background-color: #94B3C9;
   transition-duration: 100ms;
 }
+
+@media only screen and (min-width: 768px){
+  .navItem {
+    font-size: 1em;
+    padding: 3px;
+  }
+}
