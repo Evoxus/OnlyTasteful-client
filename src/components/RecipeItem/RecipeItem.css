@@ -1,14 +1,23 @@
 .recipeItem {
   border: 1px solid #94B3C9;
-  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
+  box-shadow: 1px 1px 4px #5E7A8E;
   margin: 5px;
   border-radius: 5px;
   padding: 5px;
+  background-color: #FFE6B6;
+
 }
 
 .recipeItemContent {
   text-decoration: none;
   color: #11212C;
+}
+
+.recipeItemContent h4 {
+  margin: 0;
+  padding: 10px;
+  color: #253048;
+  font-family: 'Libre Baskerville', serif;
 }
 
 @media only screen and (min-width: 768px){
