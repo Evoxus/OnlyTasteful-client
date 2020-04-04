@@ -25,7 +25,7 @@ export default class Nav extends Component {
     const { currentUser } = this.context;
     return (
       <nav>
-        <p><Link className='appName' to='/'>OnlyTasteful</Link></p>
+        <Link className='appName' to='/'>OnlyTasteful</Link>
         <ul>
           <li><Link className='navItem' to='/recipes'>Recipes</Link></li>
           {

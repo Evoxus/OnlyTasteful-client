@@ -44,10 +44,14 @@ export default class SignIn extends Component {
       <main className='signIn'>
         <header>
           <h2>Sign In</h2>
+          <p className='demoUserCredentials'>If you don't wish to register an account you can sign in as</p>
+          <p className='demoUserCredentials'><strong>Username</strong>: demo</p>
+          <p className='demoUserCredentials'><strong>Password</strong>: badbadpassword</p>
+          <p className='demoUserCredentials'>* both Username and Password are case-sensitive</p>
         </header>
         <section>
           { this.state.error && <div className='errorMsg'>{this.state.error}</div>}
-        <form onSubmit={this.onSignIn}>
+        <form className='signInForm' onSubmit={this.onSignIn}>
           <label htmlFor='signin_user_name'>Username</label>
           <input type='text' name='user_name' id='signin_user_name' />
           <label htmlFor='signin_password'>Password</label>

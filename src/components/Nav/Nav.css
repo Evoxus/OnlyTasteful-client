@@ -16,16 +16,23 @@ nav ul {
   justify-content: space-evenly;
   list-style: none;
   padding-inline-start: 0;
+  margin: 15px 0 0 0;
 }
 
 nav ul li {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .appName {
   color: #FFDFB6;
   text-decoration: none;
   transition-duration: 100ms;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  padding-top: 10px;
+  padding-left: 3px;
+  padding-right: 6px;
+  border-radius: 2px;
 }
 
 .appName:hover {
@@ -38,10 +45,12 @@ nav ul li {
   color: #FFE6B6;
   text-decoration: none;
   transition-duration: 100ms;
+  border-radius: 2px;
+  font-size: 0.7em;
 }
 
 .navItem:hover {
-  color: #FFE6B6;
-  background-color: #6B5832;
+  color: #11212C ;
+  background-color: #94B3C9;
   transition-duration: 100ms;
 }
