@@ -41,6 +41,10 @@
 
 .findYourDish:hover, .createRecipes:hover {
   transition-duration: 200ms;
-  background-color: antiquewhite;
+  background-color: #FFE6B6;
   box-shadow: 1px 1px 4px grey;
+}
+
+.findYourDish a:hover {
+  color: #443118;
 }
