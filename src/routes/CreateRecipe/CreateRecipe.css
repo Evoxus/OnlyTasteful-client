@@ -1,8 +1,17 @@
 .createRecipe {
-  margin-top: 60px;
+  margin-top: 50px;
+}
+
+.createRecipe h2 {
+  margin: 0;
+  padding: 10px;
+  background-color: #FFE6B6;
+  color: #253048;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .createRecipeForm {
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 
@@ -14,6 +23,9 @@
 .createRecipeForm button,
 .createRecipeForm input[type=submit] {
   max-width: 200px;
+  margin: 10px auto;
+  background-color: #94B3C9;
+  border-radius: 5px;
 }
 
 .createRecipeForm input,
