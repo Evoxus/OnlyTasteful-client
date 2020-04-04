@@ -16,7 +16,6 @@ import './App.css';
 // TODO: Add form validation for signin
 // TODO: Add form validation for signup
 // TODO: Add form validation for create recipe
-// TODO: Add error boundary and tests
 
 export default function App() {
   return (
