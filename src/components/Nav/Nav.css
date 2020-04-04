@@ -47,6 +47,8 @@ nav ul li {
   transition-duration: 100ms;
   border-radius: 2px;
   font-size: 0.7em;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .navItem:hover {

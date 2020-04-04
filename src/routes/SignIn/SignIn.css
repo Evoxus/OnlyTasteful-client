@@ -27,8 +27,10 @@
   max-width: 650px;
 }
 
-.signIn button[type=submit] {
+.signInForm button {
   margin: 10px auto;
+  background-color: #94B3C9;
+  border-radius: 5px;
 }
 
 .signIn label {

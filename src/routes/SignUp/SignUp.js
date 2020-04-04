@@ -49,11 +49,11 @@ export default class SignUp extends Component {
     return (
       <main role='main' className='signUp'>
         <header>
-          <h1>Sign Up</h1>
+          <h2>Sign Up</h2>
         </header>
         <section>
           {this.state.error && <div className='errorMsg'>{this.state.error}</div>}
-          <form onSubmit={this.onSignUp}>
+          <form className='signUpForm' onSubmit={this.onSignUp}>
             <label htmlFor='register_user_name'>Username</label>
             <input type='text' name='user_name' id='register_user_name' />
             <label htmlFor='register_password'>Password</label>
