@@ -4,6 +4,8 @@ import TokenService from '../../services/token-service';
 import OnlyTastefulContext from '../../context/RecipesContext';
 import './SignIn.css';
 
+// TODO: Add demo user credentials to sign in
+
 export default class SignIn extends Component {
   state = {
     error: null,
