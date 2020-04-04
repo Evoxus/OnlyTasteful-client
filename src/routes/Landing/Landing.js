@@ -13,8 +13,8 @@ export default function Landing() {
         <Link to='/recipes' className='hoverEffect'>
           <h3>Find your next dish to cook</h3>
           <p>
-            [<em>Placeholder for screenshot of view all recipes</em>] OnlyTasteful is the digital
-          equivalent of grandma's cookbook.
+            OnlyTasteful is the digital
+            equivalent of grandma's cookbook.
         </p>
         </Link>
       </section>
@@ -22,8 +22,7 @@ export default function Landing() {
         <Link to='/createrecipe' className='hoverEffect'>
           <h3>Create and modify your own recipes</h3>
           <p>
-            [<em>Placeholder for gif of create/modify interface</em>]
-          Add or modify your recipes to build a library of delicious meals.
+            Add or modify your recipes to build a library of delicious meals.
         </p>
         </Link>
       </section>
