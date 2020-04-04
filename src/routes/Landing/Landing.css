@@ -7,12 +7,12 @@
   font-family: 'Libre Baskerville', serif;
 }
 
-.findYourDish {
-  background-color: #443118;
+.hero h1 {
+  font-family: 'Dancing Script', cursive;
 }
 
-.createRecipes {
-  background-color: #94B3C9;
+.findYourDish, .createRecipes {
+  background-color: #443118;
 }
 
 .findYourDish, .createRecipes {
@@ -31,12 +31,8 @@
   cursor: pointer;
 }
 
-.findYourDish a {
+.findYourDish a, .createRecipes a {
   color: #FFDFB6;
-}
-
-.createRecipes a {
-  color: #11212C;
 }
 
 .findYourDish:hover, .createRecipes:hover {
@@ -45,6 +41,6 @@
   box-shadow: 1px 1px 4px grey;
 }
 
-.findYourDish a:hover {
+.findYourDish a:hover, .createRecipes a:hover {
   color: #443118;
 }

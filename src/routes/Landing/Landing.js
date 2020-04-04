@@ -7,7 +7,7 @@ export default function Landing() {
     <main>
       <section className="hero">
         <h1>OnlyTasteful</h1>
-        <h2>A cookbook for the modern cook</h2>
+        <h2>A cookbook for the modern cook!</h2>
       </section>
       <section className="findYourDish">
         <Link to='/recipes' className='hoverEffect'>
