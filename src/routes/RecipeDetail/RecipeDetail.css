@@ -1,26 +1,46 @@
 .RecipeDetail {
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
-.ingredients {
+.RecipeDetail h2 {
+  margin: 0;
+  padding: 20px;
+  background-color: #FFE6B6;
+  color: #253048;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.ingredientsList {
   border: 1px solid #94B3C9;
-  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px #5E7A8E;
   list-style: none;
-  margin: 10px;
+  margin: 10px auto;
   padding-left: 15%;
+  padding-right: 3%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 60%;
+}
+
+.ingredient {
   text-align: left;
+  margin: 5px 0;
 }
 
 .instructions {
   border: 1px solid #94B3C9;
-  box-shadow: 1px 1px 4px #5E7A8E, -1px 1px 4px #5E7A8E;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px #5E7A8E;
   margin: 10px;
   padding-left: 10%;
   text-align: left;
+  padding-right: 10%;
 }
 
 @media only screen and (min-width: 768px){
-  .ingredients {
-    padding-left: 40%;
+  .ingredientsList {
+    width: 40%;
+    padding-left: 20%;
   }
 }

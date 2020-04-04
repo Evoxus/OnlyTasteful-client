@@ -43,7 +43,7 @@ export default class RecipeDetail extends Component {
 
   render() {
     const ingredients = this.context.recipeDetails.ingredients.map((ingredient, idx) =>
-      <li key={idx}>{ingredient.quantity} {ingredient.measurement} {ingredient.ingredient_name}</li>
+      <li className='ingredient' key={idx}>{ingredient.quantity} {ingredient.measurement} {ingredient.ingredient_name}</li>
     )
     const recipe = this.context.recipeDetails.recipe
     return (
@@ -59,7 +59,7 @@ export default class RecipeDetail extends Component {
         </section>
         <section>
           <h3>Ingredients List</h3>
-          <ul className='ingredients'>
+          <ul className='ingredientsList'>
             {ingredients}
           </ul>
         </section>
