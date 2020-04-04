@@ -19,7 +19,7 @@ export default function Landing() {
         </Link>
       </section>
       <section className="createRecipes">
-        <Link to='/signin' className='hoverEffect'>
+        <Link to='/createrecipe' className='hoverEffect'>
           <h3>Create and modify your own recipes</h3>
           <p>
             [<em>Placeholder for gif of create/modify interface</em>]
