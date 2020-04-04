@@ -8,7 +8,15 @@
 }
 
 .signIn {
-  margin-top: 60px;
+  margin-top: 50px;
+}
+
+.signIn h2 {
+  margin: 0;
+  padding: 10px;
+  background-color: #FFE6B6;
+  color: #253048;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .signIn input {

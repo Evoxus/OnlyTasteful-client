@@ -1,40 +1,45 @@
 .hero {
-  margin-top: 25vh;
-  margin-bottom: 10vh;
+  margin-top: 50px;
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+  background-color: #FFE6B6;
+  color: #253048;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .findYourDish {
-  background-color: #aaa;
+  background-color: #443118;
 }
 
 .createRecipes {
-  background-color: #888;
+  background-color: #94B3C9;
 }
 
-.findYourDish,
-.createRecipes {
+.findYourDish, .createRecipes {
   padding: 10px;
   margin: 5px;
   transition-duration: 200ms;
 }
 
-.findYourDish h3,
-.createRecipes h3,
-.findYourDish p,
-.createRecipes p {
+.findYourDish h3, .createRecipes h3, .findYourDish p, .createRecipes p {
   margin: 0;
   padding: 5px;
 }
 
-.findYourDish a,
-.createRecipes a {
+.findYourDish a, .createRecipes a {
   text-decoration: none;
-  color: black;
   cursor: pointer;
 }
 
-.findYourDish:hover,
-.createRecipes:hover {
+.findYourDish a {
+  color: #FFDFB6;
+}
+
+.createRecipes a {
+  color: #11212C;
+}
+
+.findYourDish:hover, .createRecipes:hover {
   transition-duration: 200ms;
   background-color: antiquewhite;
   box-shadow: 1px 1px 4px grey;
