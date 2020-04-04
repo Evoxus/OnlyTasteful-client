@@ -1,8 +1,17 @@
-.updateRecipe {
-  margin-top: 60px;
+.updateRecipeRoute {
+  margin-top: 50px;
+}
+
+.updateRecipeRoute h2 {
+  margin: 0;
+  padding: 10px;
+  background-color: #FFE6B6;
+  color: #253048;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .updateRecipeForm {
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 

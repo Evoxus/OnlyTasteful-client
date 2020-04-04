@@ -38,6 +38,12 @@
   padding-right: 10%;
 }
 
+.updateRecipe, .deleteRecipe {
+  margin: 10px 5px;
+  background-color: #94B3C9;
+  border-radius: 5px;
+}
+
 @media only screen and (min-width: 768px){
   .ingredientsList {
     width: 40%;

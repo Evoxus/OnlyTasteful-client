@@ -220,7 +220,7 @@ export default class UpdateRecipe extends Component {
 
   render() {
     return (
-      <main role="main" className='updateRecipe'>
+      <main role="main" className='updateRecipeRoute'>
         <header>
           <h2>Update Recipe</h2>
         </header>
