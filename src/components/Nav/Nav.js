@@ -4,6 +4,7 @@ import OnlyTastefulContext from '../../context/RecipesContext';
 import TokenService from '../../services/token-service';
 import './Nav.css';
 
+// TODO: Change to hamburger menu on mobile
 
 export default class Nav extends Component {
   static defaultProps = {

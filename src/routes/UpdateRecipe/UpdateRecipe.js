@@ -4,6 +4,8 @@ import OnlyTastefulContext from '../../context/RecipesContext';
 import RecipesApiService from '../../services/recipes-api-service';
 import './UpdateRecipe.css';
 
+// TODO: Form validation
+
 export default class UpdateRecipe extends Component {
   static defaultProps = {
     history: {

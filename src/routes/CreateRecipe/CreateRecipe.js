@@ -4,6 +4,8 @@ import IngredientInput from '../../components/IngredientInput/IngredientInput';
 import RecipesApiService from '../../services/recipes-api-service';
 import './CreateRecipe.css';
 
+// TODO: Form validation
+
 export default class CreateRecipe extends Component {
   static defaultProps = {
     history: {
