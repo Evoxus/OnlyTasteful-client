@@ -33,7 +33,16 @@
   border-radius: 5px;
 }
 
+.signInForm button:disabled {
+  background-color: #737373;
+}
+
 .signIn label {
   display: block;
 }
 
+.formValidationMsg {
+  color: red;
+  font-size: 0.8em;
+  margin: 5px 0;
+}
