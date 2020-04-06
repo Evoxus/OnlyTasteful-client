@@ -4,8 +4,6 @@ import TokenService from '../../services/token-service';
 import OnlyTastefulContext from '../../context/RecipesContext';
 import './SignUp.css';
 
-// TODO: Form validation
-
 export default class SignUp extends Component {
   state = {
     user_name: {

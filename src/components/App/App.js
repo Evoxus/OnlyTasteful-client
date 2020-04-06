@@ -14,8 +14,6 @@ import SignUp from '../../routes/SignUp/SignUp';
 import './App.css';
 import PrivateRoute from '../Utilities/PrivateRoute';
 
-// TODO: Add form validation for signin
-// TODO: Add form validation for signup
 // TODO: Add form validation for create recipe
 // TODO: Alert user they have signed out
 // TODO: Add screenshots to landing
