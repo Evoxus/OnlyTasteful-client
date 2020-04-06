@@ -28,6 +28,10 @@
   border-radius: 5px;
 }
 
+.signUpForm button:disabled {
+  background-color: #737373;
+}
+
 .signUp label {
   display: block;
 }
