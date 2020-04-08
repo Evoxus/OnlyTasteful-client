@@ -4,8 +4,6 @@ import IngredientInput from '../../components/IngredientInput/IngredientInput';
 import RecipesApiService from '../../services/recipes-api-service';
 import './CreateRecipe.css';
 
-// TODO: Form validation
-
 export default class CreateRecipe extends Component {
   static defaultProps = {
     history: {
@@ -159,6 +157,30 @@ export default class CreateRecipe extends Component {
     })
   }
 
+  titleValidation = () => {
+    const { title } = this.state
+    if (title.value.length < 3) {
+      return 'A recipe requires a title'
+    }
+    return false
+  }
+
+  instructionsValidation = () => {
+    const { instructions } = this.state
+    if (instructions.value < 3) {
+      return 'A recipe requires some directions on how to make it'
+    }
+    return false
+  }
+
+  ingredientsValidation = () => {
+    const { ingredients } = this.state
+    if (ingredients.values[0].ingredient_name.length < 3) {
+      return 'A recipe requires at least one ingredient'
+    }
+    return false
+  }
+
   render() {
     return (
       <main role="main" className='createRecipe'>
@@ -174,6 +196,10 @@ export default class CreateRecipe extends Component {
                   type='text' name='title' id='recipe_title'
                   onChange={e => this.updateTitle(e.target.value)}
                 />
+                {
+                  this.state.title.touched
+                  && <div className='formValidationMsg'>{this.titleValidation()}</div>
+                }
                 <label htmlFor='description'>Description</label>
                 <textarea
                   name='recipe_description' id='recipe_description'
@@ -184,8 +210,16 @@ export default class CreateRecipe extends Component {
                   id='instructions' name='instructions'
                   onChange={e => this.updateInstructions(e.target.value)}
                 ></textarea>
+                {
+                  this.state.instructions.touched
+                  && <div className='formValidationMsg'>{this.instructionsValidation()}</div>
+                }
               </div>
               <div className='rightColumn'>
+                {
+                  this.state.ingredients.touched
+                  && <div className='formValidationMsg'>{this.ingredientsValidation()}</div>
+                }
                 {this.state.ingredients.values.map((ingredient, idx) =>
                   <IngredientInput key={idx} idx={idx}
                     data={ingredient} arrLength={this.state.ingredients.values.length}
@@ -195,7 +229,7 @@ export default class CreateRecipe extends Component {
                 <button onClick={this.addIngredient}>+ Add another ingredient</button>
               </div>
             </div>
-            <input type='submit' />
+            <input disabled={this.titleValidation() || this.instructionsValidation() || this.ingredientsValidation()} type='submit' />
           </form>
         </section>
       </main>
