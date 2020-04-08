@@ -6,15 +6,21 @@
   top: 0;
   left: 0;
   right: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
-  display: flex;
-  justify-content: space-evenly;
   list-style: none;
   padding-inline-start: 0;
   margin: 0;
   text-align: right;
+}
+
+.logoLink {
+  position: relative;
+  top: 5px;
+  left: 10px;
 }
 
 .logo {
@@ -23,8 +29,6 @@ nav ul {
 }
 
 .appName {
-  display: flex;
-  justify-content: flex-end;
   color: #FFDFB6;
   text-decoration: none;
   transition-duration: 100ms;
@@ -69,36 +73,48 @@ nav ul {
   position: relative;
   width: 36px;
   height: 30px;
-  left: 82%;
+  right: 10px;
   top: 10px;
 }
 
 /* Taken from react-burger-menu docs */
+
 /* Color/shape of burger icon bars */
+
 .bm-burger-bars {
   box-shadow: 1px 1px 2px #223745;
   background: #99AACD;
 }
+
 /* Position and sizing of clickable cross button */
+
 .bm-cross-button {
   height: 24px;
   width: 24px;
 }
+
 /* Color/shape of close button cross */
+
 .bm-cross {
   background: #bdc3c7;
 }
+
 /* General sidebar styles */
+
 .bm-menu {
   background: rgba(153, 170, 205, 0.85);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
+
 /* Wrapper for item list */
+
 .bm-item-list {
   color: #b8b7ad;
 }
+
 /* Styling of overlay */
+
 .bm-overlay {
   background: rgba(153, 170, 205, 0.65);
 }
@@ -114,13 +130,18 @@ nav ul {
     justify-content: space-evenly;
     background-color: #443118;
   }
+  .logoLink {
+    position: inherit;
+  }
   nav ul {
+    display: flex;
+    justify-content: space-evenly;
     text-align: center;
     align-items: center;
   }
   .appName {
     display: flex;
-
+    justify-content: flex-end;
   }
   .navItem {
     padding: 3px;

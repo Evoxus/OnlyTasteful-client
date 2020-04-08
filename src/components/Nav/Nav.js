@@ -60,11 +60,12 @@ export default class Nav extends Component {
     return (
       <div className='navBar'>
         { screenSize < 768 ?
+        <>
+        <Link to='/' onClick={() => this.closeMenu()} className='logoLink'><Logo className='logo' /></Link>
         <Menu right isOpen={this.state.menuOpen}
           onStateChange={(state) => this.handleStateChange(state)}>
           <ul>
             <Link className='appName' to='/' onClick={() => this.closeMenu()}>
-              <Logo className='logo' />
               <p className='appNameText'>OnlyTasteful</p>
             </Link>
             <li><Link className='navItem' to='/recipes' onClick={() => this.closeMenu()}>Recipes</Link></li>
@@ -86,7 +87,8 @@ export default class Nav extends Component {
                 </>
             }
           </ul>
-        </Menu> :
+        </Menu>
+        </> :
         <nav className='largeScreenNav'>
           <Link className='appName' to='/'>
             <Logo className='logo' />
