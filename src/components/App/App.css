@@ -2,6 +2,10 @@
   padding-bottom: 35px;
 }
 
+#pageWrap {
+  overflow: auto;
+}
+
 .color-primary-0 { color: #A38257 }	/* Main Primary color */
 .color-primary-1 { color: #FFDFB6 }
 .color-primary-2 { color: #DDBB8E }

@@ -223,7 +223,7 @@ export default class UpdateRecipe extends Component {
   }
 
   titleValidation = () => {
-    const { title } = this.state
+    const { title } = this.state.recipe
     if (title.value.length < 3) {
       return 'A recipe requires a title'
     }
@@ -231,7 +231,7 @@ export default class UpdateRecipe extends Component {
   }
 
   instructionsValidation = () => {
-    const { instructions } = this.state
+    const { instructions } = this.state.recipe
     if (instructions.value < 3) {
       return 'A recipe requires some directions on how to make it'
     }
@@ -248,7 +248,7 @@ export default class UpdateRecipe extends Component {
 
   render() {
     return (
-      <main role="main" className='updateRecipeRoute'>
+      <div className='updateRecipeRoute'>
         <header>
           <h2>Update Recipe</h2>
         </header>
@@ -263,7 +263,7 @@ export default class UpdateRecipe extends Component {
                   onChange={e => this.updateTitle(e.target.value)}
                 />
                 {
-                  this.state.title.touched
+                  this.state.recipe.title.touched
                   && <div className='formValidationMsg'>{this.titleValidation()}</div>
                 }
                 <label htmlFor='description'>Description</label>
@@ -279,7 +279,7 @@ export default class UpdateRecipe extends Component {
                   onChange={e => this.updateInstructions(e.target.value)}
                 ></textarea>
                 {
-                  this.state.instructions.touched
+                  this.state.recipe.instructions.touched
                   && <div className='formValidationMsg'>{this.instructionsValidation()}</div>
                 }
               </div>
@@ -304,7 +304,7 @@ export default class UpdateRecipe extends Component {
             />
           </form>
         </section>
-      </main>
+      </div>
     )
   }
 }

@@ -1,14 +1,11 @@
-nav {
-  display: flex;
-  width: 100%;
+.navBar {
+  background-color: #443118;
   height: 50px;
-  position: absolute;
+  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
-  background-color: #796044;
-  justify-content: space-evenly;
 }
 
 nav ul {
@@ -16,22 +13,18 @@ nav ul {
   justify-content: space-evenly;
   list-style: none;
   padding-inline-start: 0;
-  margin: 15px 0 0 0;
-}
-
-nav ul li {
-  margin-left: 8px;
+  margin: 0;
+  text-align: right;
 }
 
 .logo {
   height: 40px;
   width: 40px;
-  background: url('../../svg/cookbook-chef-pngrepo-com.png');
-  background-image: url('../../svg/cookbook-chef-svgrepo-com.svg'), none;
 }
 
 .appName {
   display: flex;
+  justify-content: flex-end;
   color: #FFDFB6;
   text-decoration: none;
   transition-duration: 100ms;
@@ -49,25 +42,86 @@ nav ul li {
   transition-duration: 100ms;
 }
 
+.appNameText {
+  margin: 0;
+  align-self: center;
+  display: inline;
+}
+
 .navItem {
+  display: inline-block;
   color: #FFE6B6;
   text-decoration: none;
   transition-duration: 100ms;
   border-radius: 2px;
-  font-size: 0.7em;
   padding-top: 3px;
   padding-bottom: 3px;
+  margin: 3px auto;
 }
 
 .navItem:hover {
-  color: #11212C ;
+  color: #11212C;
   background-color: #94B3C9;
   transition-duration: 100ms;
 }
 
-@media only screen and (min-width: 768px){
+.bm-burger-button {
+  position: relative;
+  width: 36px;
+  height: 30px;
+  left: 82%;
+  top: 10px;
+}
+
+/* Taken from react-burger-menu docs */
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #99AACD;
+}
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+/* General sidebar styles */
+.bm-menu {
+  background: rgba(153, 170, 205, 0.85);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+}
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(153, 170, 205, 0.65);
+}
+
+@media only screen and (min-width: 768px) {
+  .largeScreenNav {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    justify-content: space-evenly;
+    background-color: #443118;
+  }
+  nav ul {
+    text-align: center;
+    align-items: center;
+  }
+  .appName {
+    display: flex;
+
+  }
   .navItem {
-    font-size: 1em;
     padding: 3px;
   }
 }

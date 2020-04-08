@@ -47,7 +47,7 @@ export default class RecipeDetail extends Component {
     )
     const recipe = this.context.recipeDetails.recipe
     return (
-      <main className='RecipeDetail'>
+      <div className='RecipeDetail'>
         <header>
           <h2>{recipe.title}</h2>
           <p>Added by: {recipe.user_name}</p>
@@ -80,7 +80,7 @@ export default class RecipeDetail extends Component {
           </>
           : null
         }
-      </main>
+      </div>
     )
   }
 }

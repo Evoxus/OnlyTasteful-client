@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Landing() {
   return (
-    <main>
+    <>
       <section className="hero">
         <h1>OnlyTasteful</h1>
         <h2>A cookbook for the modern cook!</h2>
@@ -26,6 +26,6 @@ export default function Landing() {
         </p>
         </Link>
       </section>
-    </main>
+    </>
   )
 }

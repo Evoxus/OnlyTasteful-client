@@ -183,7 +183,7 @@ export default class CreateRecipe extends Component {
 
   render() {
     return (
-      <main role="main" className='createRecipe'>
+      <div className='createRecipe'>
         <header>
           <h2>Create Recipe</h2>
         </header>
@@ -236,7 +236,7 @@ export default class CreateRecipe extends Component {
             />
           </form>
         </section>
-      </main>
+      </div>
     )
   }
 }

@@ -121,7 +121,7 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <main role='main' className='signUp'>
+      <div className='signUp'>
         <header>
           <h2>Sign Up</h2>
         </header>
@@ -144,7 +144,7 @@ export default class SignUp extends Component {
               type='submit'>Sign Up</button>
           </form>
         </section>
-      </main>
+      </div>
     )
   }
 }

@@ -88,7 +88,7 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <main className='signIn'>
+      <div className='signIn'>
         <header>
           <h2>Sign In</h2>
           <p className='demoUserCredentials'>If you don't wish to register an account you can sign in as</p>
@@ -110,7 +110,7 @@ export default class SignIn extends Component {
             <button disabled={this.usernameValidation() || this.passwordValidation()} type='submit'>Sign In</button>
           </form>
         </section>
-      </main>
+      </div>
     )
   }
 }
