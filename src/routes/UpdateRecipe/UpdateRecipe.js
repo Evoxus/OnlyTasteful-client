@@ -202,23 +202,49 @@ export default class UpdateRecipe extends Component {
     }
     RecipesApiService.updateRecipe(updatedRecipe, recipeId)
       .then(this.context.setRecipeDetails(
-          {
-            title: updatedRecipe.title,
-            recipe_description: updatedRecipe.recipe_description,
-            instructions: updatedRecipe.instructions,
-            id: this.context.recipeDetails.recipe.id,
-            user_name: this.context.recipeDetails.recipe.user_name
-          },
-          updatedRecipe.ingredients,
-        ))
+        {
+          title: updatedRecipe.title,
+          recipe_description: updatedRecipe.recipe_description,
+          instructions: updatedRecipe.instructions,
+          id: this.context.recipeDetails.recipe.id,
+          user_name: this.context.recipeDetails.recipe.user_name
+        },
+        updatedRecipe.ingredients,
+      ))
       .then(res => {
-        // Dirty hack to make it update correctly
+        // A little hack to make it update correctly 
+        // (for some reason the update takes an avg 300ms to complete)
         let that = this;
-        setTimeout(function() {
-          that.props.history.push(`/recipes/${recipeId}/`)}, 500)})
+        setTimeout(function () {
+          that.props.history.push(`/recipes/${recipeId}/`)
+        }, 500)
+      })
       .catch(err => this.context.setError(err))
   }
 
+  titleValidation = () => {
+    const { title } = this.state
+    if (title.value.length < 3) {
+      return 'A recipe requires a title'
+    }
+    return false
+  }
+
+  instructionsValidation = () => {
+    const { instructions } = this.state
+    if (instructions.value < 3) {
+      return 'A recipe requires some directions on how to make it'
+    }
+    return false
+  }
+
+  ingredientsValidation = () => {
+    const { ingredients } = this.state
+    if (ingredients.values[0].ingredient_name.length < 3) {
+      return 'A recipe requires at least one ingredient'
+    }
+    return false
+  }
 
   render() {
     return (
@@ -236,6 +262,10 @@ export default class UpdateRecipe extends Component {
                   defaultValue={this.state.recipe.title.value}
                   onChange={e => this.updateTitle(e.target.value)}
                 />
+                {
+                  this.state.title.touched
+                  && <div className='formValidationMsg'>{this.titleValidation()}</div>
+                }
                 <label htmlFor='description'>Description</label>
                 <textarea
                   name='recipe_description' id='recipe_description'
@@ -248,8 +278,16 @@ export default class UpdateRecipe extends Component {
                   defaultValue={this.state.recipe.instructions.value}
                   onChange={e => this.updateInstructions(e.target.value)}
                 ></textarea>
+                {
+                  this.state.instructions.touched
+                  && <div className='formValidationMsg'>{this.instructionsValidation()}</div>
+                }
               </div>
               <div className='rightColumn'>
+                {
+                  this.state.ingredients.touched
+                  && <div className='formValidationMsg'>{this.ingredientsValidation()}</div>
+                }
                 {this.state.ingredients.values.map((ingredient, idx) =>
                   <IngredientInput key={idx} idx={idx}
                     data={ingredient} arrLength={this.state.ingredients.values.length}
@@ -259,7 +297,11 @@ export default class UpdateRecipe extends Component {
                 <button onClick={this.addIngredient}>+ Add another ingredient</button>
               </div>
             </div>
-            <input type='submit' />
+            <input 
+              disabled={this.titleValidation() || this.instructionsValidation()
+                || this.ingredientsValidation()} 
+              type='submit' 
+            />
           </form>
         </section>
       </main>

@@ -229,7 +229,11 @@ export default class CreateRecipe extends Component {
                 <button onClick={this.addIngredient}>+ Add another ingredient</button>
               </div>
             </div>
-            <input disabled={this.titleValidation() || this.instructionsValidation() || this.ingredientsValidation()} type='submit' />
+            <input 
+              disabled={this.titleValidation() || this.instructionsValidation() 
+                || this.ingredientsValidation()} 
+              type='submit' 
+            />
           </form>
         </section>
       </main>
