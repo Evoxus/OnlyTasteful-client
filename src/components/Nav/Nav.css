@@ -76,6 +76,7 @@ nav ul {
 /* Taken from react-burger-menu docs */
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
+  box-shadow: 1px 1px 2px #223745;
   background: #99AACD;
 }
 /* Position and sizing of clickable cross button */
