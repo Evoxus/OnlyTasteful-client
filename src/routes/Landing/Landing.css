@@ -44,3 +44,31 @@
 .findYourDish a:hover, .createRecipes a:hover {
   color: #443118;
 }
+
+.findRecipesFlex, .createRecipesFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  order: 2;
+}
+
+.left {
+  order: 1;
+}
+
+.foodImg, .createImg {
+  max-width: 200px;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .findRecipesFlex, .createRecipesFlex {
+    flex-direction: row;
+    align-items: center;
+  }
+  .foodImg, .createImg {
+    min-width: 200px;
+  }
+}
