@@ -7,9 +7,9 @@ import './CreateRecipe.css';
 export default class CreateRecipe extends Component {
   static defaultProps = {
     history: {
-      push: () => { }
+      push: () => {},
     },
-  }
+  };
 
   state = {
     title: {
@@ -33,8 +33,8 @@ export default class CreateRecipe extends Component {
     instructions: {
       value: '',
       touched: false,
-    }
-  }
+    },
+  };
 
   static contextType = OnlyTastefulContext;
 
@@ -42,18 +42,18 @@ export default class CreateRecipe extends Component {
     this.setState({
       title: {
         value: value,
-        touched: true
-      }
-    })
+        touched: true,
+      },
+    });
   }
 
   updateDescription(value) {
     this.setState({
       recipe_description: {
         value: value,
-        touched: true
-      }
-    })
+        touched: true,
+      },
+    });
   }
 
   updateIngredients = (target, idx) => {
@@ -68,11 +68,11 @@ export default class CreateRecipe extends Component {
               measurement: ingredientValues[idx].measurement,
               quantity: ingredientValues[idx].quantity,
             },
-            ...ingredientValues.slice(idx + 1)
+            ...ingredientValues.slice(idx + 1),
           ],
-          touched: true
-        }
-      })
+          touched: true,
+        },
+      });
     } else if (target.id === `measurement${idx}`) {
       this.setState({
         ingredients: {
@@ -83,11 +83,11 @@ export default class CreateRecipe extends Component {
               measurement: target.value,
               quantity: ingredientValues[idx].quantity,
             },
-            ...ingredientValues.slice(idx + 1)
+            ...ingredientValues.slice(idx + 1),
           ],
-          touched: true
-        }
-      })
+          touched: true,
+        },
+      });
     } else if (target.id === `ingredient_quantity${idx}`) {
       this.setState({
         ingredients: {
@@ -98,39 +98,38 @@ export default class CreateRecipe extends Component {
               measurement: ingredientValues[idx].measurement,
               quantity: target.value,
             },
-            ...ingredientValues.slice(idx + 1)
+            ...ingredientValues.slice(idx + 1),
           ],
-          touched: true
-        }
-      })
+          touched: true,
+        },
+      });
     }
-  }
+  };
 
   updateInstructions(value) {
     this.setState({
       instructions: {
         value: value,
-        touched: true
-      }
-    })
+        touched: true,
+      },
+    });
   }
 
   onCreateRecipe = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newRecipe = {
       title: this.state.title.value,
       recipe_description: this.state.recipe_description.value,
       ingredients: this.state.ingredients.values,
       instructions: this.state.instructions.value,
-    }
+    };
     RecipesApiService.postRecipe(newRecipe)
-      .then(res => this.props.history.push('/recipes'))
-      .catch()
-
-  }
+      .then((res) => this.props.history.push('/recipes'))
+      .catch();
+  };
 
   addIngredient = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({
       ingredients: {
         values: [
@@ -138,105 +137,110 @@ export default class CreateRecipe extends Component {
           {
             quantity: '',
             measurement: '',
-            ingredient_name: ''
+            ingredient_name: '',
           },
         ],
       },
-    })
-  }
+    });
+  };
 
   removeIngredients = (index) => {
-    const ingredients = this.state.ingredients.values
+    const ingredients = this.state.ingredients.values;
     this.setState({
       ingredients: {
-        values: [
-          ...ingredients.slice(0, index),
-          ...ingredients.slice(index + 1)
-        ]
-      }
-    })
-  }
+        values: [...ingredients.slice(0, index), ...ingredients.slice(index + 1)],
+      },
+    });
+  };
 
   titleValidation = () => {
-    const { title } = this.state
+    const { title } = this.state;
     if (title.value.length < 3) {
-      return 'A recipe requires a title'
+      return 'A recipe requires a title';
     }
-    return false
-  }
+    return false;
+  };
 
   instructionsValidation = () => {
-    const { instructions } = this.state
+    const { instructions } = this.state;
     if (instructions.value < 3) {
-      return 'A recipe requires some directions on how to make it'
+      return 'A recipe requires some directions on how to make it';
     }
-    return false
-  }
+    return false;
+  };
 
   ingredientsValidation = () => {
-    const { ingredients } = this.state
+    const { ingredients } = this.state;
     if (ingredients.values[0].ingredient_name.length < 3) {
-      return 'A recipe requires at least one ingredient'
+      return 'A recipe requires at least one ingredient';
     }
-    return false
-  }
+    return false;
+  };
 
   render() {
     return (
-      <div className='createRecipe'>
+      <div className="createRecipe">
         <header>
           <h2>Create Recipe</h2>
         </header>
         <section>
-          <form className='createRecipeForm' onSubmit={this.onCreateRecipe}>
-            <div className='flexContainer'>
-              <div className='leftColumn'>
-                <label htmlFor='recipe_title'>Title</label>
+          <form className="createRecipeForm" onSubmit={this.onCreateRecipe}>
+            <div className="flexContainer">
+              <div className="leftColumn">
+                <label htmlFor="recipe_title">Title</label>
                 <input
-                  type='text' name='title' id='recipe_title'
-                  onChange={e => this.updateTitle(e.target.value)}
+                  type="text"
+                  name="title"
+                  id="recipe_title"
+                  onChange={(e) => this.updateTitle(e.target.value)}
                 />
-                {
-                  this.state.title.touched
-                  && <div className='formValidationMsg'>{this.titleValidation()}</div>
-                }
-                <label htmlFor='description'>Description</label>
-                <textarea
-                  name='recipe_description' id='recipe_description'
-                  onChange={e => this.updateDescription(e.target.value)}
-                />
-                <label htmlFor='instructions'>Cooking Directions</label>
-                <textarea
-                  id='instructions' name='instructions'
-                  onChange={e => this.updateInstructions(e.target.value)}
-                ></textarea>
-                {
-                  this.state.instructions.touched
-                  && <div className='formValidationMsg'>{this.instructionsValidation()}</div>
-                }
-              </div>
-              <div className='rightColumn'>
-                {
-                  this.state.ingredients.touched
-                  && <div className='formValidationMsg'>{this.ingredientsValidation()}</div>
-                }
-                {this.state.ingredients.values.map((ingredient, idx) =>
-                  <IngredientInput key={idx} idx={idx}
-                    data={ingredient} arrLength={this.state.ingredients.values.length}
-                    handleChange={this.updateIngredients} onClick={e => this.removeIngredients(idx)}
-                  />
+                {this.state.title.touched && (
+                  <div className="formValidationMsg">{this.titleValidation()}</div>
                 )}
+                <label htmlFor="description">Description</label>
+                <textarea
+                  name="recipe_description"
+                  id="recipe_description"
+                  onChange={(e) => this.updateDescription(e.target.value)}
+                />
+                <label htmlFor="instructions">Cooking Directions</label>
+                <textarea
+                  id="instructions"
+                  name="instructions"
+                  onChange={(e) => this.updateInstructions(e.target.value)}
+                ></textarea>
+                {this.state.instructions.touched && (
+                  <div className="formValidationMsg">{this.instructionsValidation()}</div>
+                )}
+              </div>
+              <div className="rightColumn">
+                {this.state.ingredients.touched && (
+                  <div className="formValidationMsg">{this.ingredientsValidation()}</div>
+                )}
+                {this.state.ingredients.values.map((ingredient, idx) => (
+                  <IngredientInput
+                    key={idx}
+                    idx={idx}
+                    data={ingredient}
+                    arrLength={this.state.ingredients.values.length}
+                    handleChange={this.updateIngredients}
+                    onClick={(e) => this.removeIngredients(idx)}
+                  />
+                ))}
                 <button onClick={this.addIngredient}>+ Add another ingredient</button>
               </div>
             </div>
-            <input 
-              disabled={this.titleValidation() || this.instructionsValidation() 
-                || this.ingredientsValidation()} 
-              type='submit' 
+            <input
+              disabled={
+                this.titleValidation() ||
+                this.instructionsValidation() ||
+                this.ingredientsValidation()
+              }
+              type="submit"
             />
           </form>
         </section>
       </div>
-    )
+    );
   }
 }

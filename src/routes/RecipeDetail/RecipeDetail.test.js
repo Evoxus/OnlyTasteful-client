@@ -7,5 +7,5 @@ describe.skip('RecipeDetail Component', () => {
     const div = document.createElement('div');
     ReactDOM.render(<RecipeDetail />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
-})
+  });
+});

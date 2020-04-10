@@ -6,7 +6,13 @@ import { BrowserRouter } from 'react-router-dom';
 describe('Landing Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<BrowserRouter> <Landing /> </BrowserRouter>, div);
+    ReactDOM.render(
+      <BrowserRouter>
+        {' '}
+        <Landing />{' '}
+      </BrowserRouter>,
+      div
+    );
     ReactDOM.unmountComponentAtNode(div);
-  })
-})
+  });
+});

@@ -7,5 +7,5 @@ describe('SignIn Component', () => {
     const div = document.createElement('div');
     ReactDOM.render(<SignIn />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
-})
+  });
+});

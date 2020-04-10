@@ -18,20 +18,20 @@ import PrivateRoute from '../Utilities/PrivateRoute';
 
 export default function App() {
   return (
-    <div id='App' className="App">
-      <Nav outerContainerId='App' pageWrapId='pageWrap' />
-      <main role="main" id='pageWrap'>
+    <div id="App" className="App">
+      <Nav outerContainerId="App" pageWrapId="pageWrap" />
+      <main role="main" id="pageWrap">
         <Switch>
-          <Route exact path='/' component={Landing} />
-          <Route path='/signup' component={SignUp} />
-          <Route path='/signin' component={SignIn} />
-          <Route exact path='/recipes' component={RecipeList} />
-          <Route exact path='/recipes/:recipeId' component={RecipeDetail} />
-          <PrivateRoute path='/createrecipe' component={CreateRecipe} />
-          <PrivateRoute path='/recipes/:recipeId/update' component={UpdateRecipe} />
+          <Route exact path="/" component={Landing} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/signin" component={SignIn} />
+          <Route exact path="/recipes" component={RecipeList} />
+          <Route exact path="/recipes/:recipeId" component={RecipeDetail} />
+          <PrivateRoute path="/createrecipe" component={CreateRecipe} />
+          <PrivateRoute path="/recipes/:recipeId/update" component={UpdateRecipe} />
         </Switch>
       </main>
       <Footer />
     </div>
-  )
+  );
 }

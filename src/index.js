@@ -6,7 +6,6 @@ import App from './components/App/App';
 import { RecipesProvider } from './context/RecipesContext';
 import './index.css';
 
-
 ReactDOM.render(
   <BrowserRouter>
     <RecipesProvider>
@@ -15,5 +14,3 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
-
-

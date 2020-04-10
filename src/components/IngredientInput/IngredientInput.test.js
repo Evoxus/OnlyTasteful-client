@@ -7,5 +7,5 @@ describe('IngredientInput Component', () => {
     const div = document.createElement('div');
     ReactDOM.render(<IngredientInput />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
-})
+  });
+});

@@ -8,12 +8,7 @@ const AuthApiService = {
         'content-type': 'application/json',
       },
       body: JSON.stringify({ user_name, password }),
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(err => Promise.reject(err))
-          : res.json()
-      )
+    }).then((res) => (!res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()));
   },
 
   postUser(user) {
@@ -23,13 +18,8 @@ const AuthApiService = {
         'content-type': 'application/json',
       },
       body: JSON.stringify(user),
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(err => Promise.reject(err))
-          : res.json()
-      )
+    }).then((res) => (!res.ok ? res.json().then((err) => Promise.reject(err)) : res.json()));
   },
-}
+};
 
-export default AuthApiService
+export default AuthApiService;

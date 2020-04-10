@@ -7,5 +7,5 @@ describe('RecipeList Component', () => {
     const div = document.createElement('div');
     ReactDOM.render(<RecipeList />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
-})
+  });
+});

@@ -6,7 +6,7 @@ function Footer() {
     <footer>
       <p>© Michael H Ploughman 2020</p>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

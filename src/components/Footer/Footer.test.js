@@ -7,5 +7,5 @@ describe('Footer Component', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Footer />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
-})
+  });
+});
