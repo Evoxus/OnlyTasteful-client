@@ -44,7 +44,19 @@ export class RecipesProvider extends Component {
   };
 
   setRecipesList = (recipes) => {
-    this.setState({ recipes });
+    this.setState({
+      recipes,
+      recipeDetails: {
+        recipe: {
+          id: 1,
+          user_name: '',
+          title: '',
+          description: '',
+          instructions: '',
+        },
+        ingredients: []
+      },
+    });
   };
 
   setError = (error) => {

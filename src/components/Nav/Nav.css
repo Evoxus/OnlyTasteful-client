@@ -1,149 +1,153 @@
-.navBar {
-  background-color: #443118;
-  height: 50px;
+:root {
+  --primary-color: rgba(163, 130, 87, 0.45);
+  --overlay-color: rgba(107, 88, 50, 0.80);
+  --menu-speed: 0.75s;
+}
+
+.menu-wrap {
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #443118;
+  height: 50px;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
   right: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav ul {
-  list-style: none;
-  padding-inline-start: 0;
-  margin: 0;
-  text-align: right;
-}
-
-.logoLink {
-  position: relative;
-  top: 5px;
-  left: 10px;
-}
-
-.logo {
-  height: 40px;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
   width: 40px;
+  height: 40px;
 }
 
-.appName {
-  color: #FFDFB6;
-  text-decoration: none;
-  transition-duration: 100ms;
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.5em;
-  padding-top: 10px;
-  padding-left: 3px;
-  padding-right: 6px;
-  border-radius: 2px;
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: .3rem;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.appName:hover {
-  color: #6B5332;
-  background-color: #FFDFB6;
-  transition-duration: 100ms;
-}
-
-.appNameText {
-  margin: 0;
-  align-self: center;
-  display: inline;
-}
-
-.navItem {
-  display: inline-block;
-  color: #FFE6B6;
-  text-decoration: none;
-  transition-duration: 100ms;
-  border-radius: 2px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin: 5px;
-}
-
-.navItem:hover {
-  color: #11212C;
-  background-color: #94B3C9;
-  transition-duration: 100ms;
-}
-
-.bm-burger-button {
+/* Hamburger lines */
+.menu-wrap .hamburger > div {
   position: relative;
-  width: 36px;
-  height: 30px;
-  right: 10px;
+  width: 100%;
+  height: 2px;
+  background-color: #253048;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+/* Create both lines above center */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background-color: #253048;
+}
+/* Move bottom line below center */
+.menu-wrap .hamburger > div:after {
   top: 10px;
 }
 
-/* Taken from react-burger-menu docs */
-
-/* Color/shape of burger icon bars */
-
-.bm-burger-bars {
-  box-shadow: 1px 1px 2px #223745;
-  background: #99AACD;
+/* Toggler animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
 }
 
-/* Position and sizing of clickable cross button */
-
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
 }
 
-/* Color/shape of close button cross */
-
-.bm-cross {
-  background: #bdc3c7;
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
 }
 
-/* General sidebar styles */
-
-.bm-menu {
-  background: rgba(153, 170, 205, 0.85);
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
 }
 
-/* Wrapper for item list */
-
-.bm-item-list {
-  color: #b8b7ad;
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: translateX(100);
+  transition-duration: var(--menu-speed);
 }
 
-/* Styling of overlay */
-
-.bm-overlay {
-  background: rgba(153, 170, 205, 0.65);
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition:  opacity 0.4s ease 0.4s;
 }
 
-@media only screen and (min-width: 768px) {
-  .largeScreenNav {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    justify-content: space-evenly;
-    background-color: #443118;
-  }
-  .logoLink {
-    position: inherit;
-  }
-  nav ul {
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-    align-items: center;
-  }
-  .appName {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .navItem {
-    padding: 3px;
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: var(--overlay-color);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #99AACD;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+@media only screen and (min-width: 768px){
+  .toggler, .hamburger,
+  .menu-wrap .hamburger > div:before,
+  .menu-wrap .hamburger > div:after {
+    display: none;
   }
 }
