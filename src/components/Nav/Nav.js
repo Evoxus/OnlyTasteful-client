@@ -5,8 +5,6 @@ import OnlyTastefulContext from '../../context/RecipesContext';
 import TokenService from '../../services/token-service';
 import './Nav.css';
 
-// TODO: Remove react-burger-menu in favor of CSS slide out
-
 export default class Nav extends Component {
   static defaultProps = {
     history: {

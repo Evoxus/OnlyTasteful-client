@@ -4,6 +4,9 @@ import OnlyTastefulContext from '../../context/RecipesContext';
 import RecipesApiService from '../../services/recipes-api-service';
 import './UpdateRecipe.css';
 
+// TODO: Add ingredient input validation
+// TODO: Limit length of input on ingredient input
+
 export default class UpdateRecipe extends Component {
   static defaultProps = {
     history: {
