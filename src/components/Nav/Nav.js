@@ -16,9 +16,9 @@ export default class Nav extends Component {
 
   static contextType = OnlyTastefulContext;
 
-  toggleMenu = () => {
+  closeMenu = () => {
     document.getElementById('menuToggle').checked = false;
-  }
+  };
 
   onSignOut = (e) => {
     e.preventDefault();
@@ -31,47 +31,43 @@ export default class Nav extends Component {
     const { currentUser } = this.context;
     return (
       <nav className="menu-wrap">
-        <input type='checkbox' className='toggler' id='menuToggle'></input>
+        <input type="checkbox" className="toggler" id="menuToggle"></input>
         <div className="hamburger">
           <div></div>
         </div>
-        <div className="menu" onClick={this.toggleMenu}>
-          <div>
-            <div>
-              <ul>
+        <div className="menu" onClick={this.closeMenu}>
+          <ul className='left'>
+            <li>
+              <Link to="/">
+                <Logo className="logo" />
+                <p className="appName">OnlyTasteful</p>
+              </Link>
+            </li>
+          </ul>
+          <ul className='right'>
+            <li>
+              <Link to="/recipes">Recipes</Link>
+            </li>
+            {currentUser ? (
+              <>
                 <li>
-                  <Link to="/">
-                    <Logo className='logo' />
-                    <p className='appName'>OnlyTasteful</p>
-                  </Link>
+                  <Link to="/createrecipe">Create Recipe</Link>
                 </li>
-              </ul>
-              <ul>
                 <li>
-                  <Link to="/recipes">Recipes</Link>
+                  <Link onClick={this.onSignOut}>Sign Out</Link>
                 </li>
-                {currentUser ? (
-                  <>
-                    <li>
-                      <Link to="/createrecipe">Create Recipe</Link>
-                    </li>
-                    <li>
-                      <Link onClick={this.onSignOut}>Sign Out</Link>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <Link to="/signin">Sign In</Link>
-                    </li>
-                    <li>
-                      <Link to="/signup">Sign Up</Link>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </div>
-          </div>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/signin">Sign In</Link>
+                </li>
+                <li>
+                  <Link to="/signup">Sign Up</Link>
+                </li>
+              </>
+            )}
+          </ul>
         </div>
       </nav>
     );
