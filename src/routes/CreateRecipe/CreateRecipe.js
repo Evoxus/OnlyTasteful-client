@@ -177,6 +177,7 @@ export default class CreateRecipe extends Component {
     if (ingredients.values[0].ingredient_name.length < 3) {
       return 'A recipe requires at least one ingredient';
     }
+    // if (ingredients.values.forEach(item => item.ingredient_name.length > 25)) 
     return false;
   };
 

@@ -68,7 +68,7 @@ export default class SignIn extends Component {
 
   usernameValidation = () => {
     const { user_name } = this.state;
-    if (user_name.value.length <= 3) {
+    if (user_name.value.length < 3) {
       return 'Username must be at least 3 characters long';
     }
     return false;
