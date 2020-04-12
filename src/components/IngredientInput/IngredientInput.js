@@ -16,6 +16,7 @@ export default function IngredientInput(props) {
         id={`ingredient_name${props.idx}`}
         onChange={(e) => props.handleChange(e.target, props.idx)}
         defaultValue={props.data.ingredient_name}
+        required maxLength={30}
       />
       <label htmlFor={`ingredient${props.idx}`}>Quantity</label>
       <input
@@ -24,6 +25,7 @@ export default function IngredientInput(props) {
         id={`ingredient_quantity${props.idx}`}
         onChange={(e) => props.handleChange(e.target, props.idx)}
         defaultValue={props.data.quantity}
+        required maxLength={5}
       />
       <label htmlFor={`ingredient${props.idx}`}>Measurement Unit</label>
       <input
@@ -32,6 +34,7 @@ export default function IngredientInput(props) {
         id={`measurement${props.idx}`}
         onChange={(e) => props.handleChange(e.target, props.idx)}
         defaultValue={props.data.measurement}
+        maxLength={10}
       />
       {props.arrLength > 1 ? (
         <button type="button" onClick={(e) => props.onClick(e)}>
