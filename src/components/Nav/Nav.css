@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 :root {
   --primary-color: rgba(163, 130, 87, 0.45);
   --overlay-color: rgba(107, 88, 50, 0.80);
@@ -11,8 +18,11 @@
 
 .appName {
   display: inline;
-  align-self: center;
-  justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
   margin: 0;
   font-family: 'Dancing Script', cursive;
   font-size: 1.5em;
@@ -21,8 +31,13 @@
 
 .menu ul {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0;
   padding: 0;
 }
@@ -39,6 +54,8 @@
 }
 
 .left > li > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   text-decoration: none;
   color: #FFDFB6;
@@ -46,6 +63,8 @@
   padding-left: 15%;
   padding-right: 10px;
   border-radius: 2px;
+  -webkit-transition: all 250ms;
+  -o-transition: all 250ms;
   transition: all 250ms;
 }
 
@@ -59,6 +78,8 @@
   color: #99AACD;
   padding: 5px;
   border-radius: 2px;
+  -webkit-transition: all 250ms;
+  -o-transition: all 250ms;
   transition: all 250ms;
 }
 
@@ -91,9 +112,15 @@
   height: 40px;
   padding: .3rem;
   background-color: var(--primary-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /* Hamburger lines */
 .menu-wrap .hamburger > div {
@@ -101,9 +128,17 @@
   width: 100%;
   height: 2px;
   background-color: #253048;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 /* Create both lines above center */
@@ -124,19 +159,25 @@
 
 /* Toggler animation */
 .menu-wrap .toggler:checked + .hamburger > div {
-  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
 }
 
 /* Turns Lines Into X */
 .menu-wrap .toggler:checked + .hamburger > div:before,
 .menu-wrap .toggler:checked + .hamburger > div:after {
   top: 0;
-  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 /* Rotate On Hover When Checked */
 .menu-wrap .toggler:checked:hover + .hamburger > div {
-  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
 }
 
 /* Default Closed Menu */
@@ -151,6 +192,8 @@
   opacity: 0.8;
   overflow-x: hidden;
   padding-top: 50px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 /* Handle Opening Menu */
@@ -167,8 +210,11 @@
     display: none;
   }
   .menu-wrap .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   .menu {
     height: 50px;
@@ -177,7 +223,10 @@
     padding-top: 0;
   }
   .menu ul {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .menu .right {
     margin-top: 15px;
