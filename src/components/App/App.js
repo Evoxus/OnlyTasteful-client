@@ -14,7 +14,9 @@ import SignUp from '../../routes/SignUp/SignUp';
 import './App.css';
 import PrivateRoute from '../Utilities/PrivateRoute';
 
-// TODO: Alert user they have signed out
+// TODO: Alert user they have signed out or redirect to the login page
+// TODO: Refactor to use react hooks forms
+// TODO: Refactor to use react hooks instead of context
 
 export default function App() {
   return (
