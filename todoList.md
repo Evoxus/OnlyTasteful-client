@@ -1,0 +1,6 @@
+- make modal component
+- use modal for recipe deletion confirmation
+- add favorites functionality
+- style more creatively
+- figure out how to actually update recipes instead of wiping and rebuilding
+- get rid of demo account call out but keep for testing purposes
